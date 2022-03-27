@@ -52,9 +52,9 @@
     <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="eslint" scheme="https://dukeluo.github.io/tags/eslint/"/>
-    
     <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    
+    <category term="eslint" scheme="https://dukeluo.github.io/tags/eslint/"/>
     
   </entry>
   
@@ -73,9 +73,9 @@
     <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
-    
     <category term="docker" scheme="https://dukeluo.github.io/tags/docker/"/>
+    
+    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
     
   </entry>
   
@@ -285,9 +285,9 @@
     <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
-    
     <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
     
     <category term="定位" scheme="https://dukeluo.github.io/tags/%E5%AE%9A%E4%BD%8D/"/>
     
@@ -331,9 +331,9 @@
     <category term="编程语言" scheme="https://dukeluo.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
     <category term="C" scheme="https://dukeluo.github.io/tags/C/"/>
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -352,9 +352,9 @@
     <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
-    
     <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
     
     <category term="浮动" scheme="https://dukeluo.github.io/tags/%E6%B5%AE%E5%8A%A8/"/>
     
