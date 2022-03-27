@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="My personal solution to the problem set 2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MIT 6.00.1x  计算机科学和Python编程导论  Set 2">
+<meta property="og:url" content="https://dukeluo.github.io/2017/03/05/MIT-6.00.1x-Set2.html">
+<meta property="og:site_name" content="晒网">
+<meta property="og:description" content="My personal solution to the problem set 2.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-26T14:52:41.418Z">
+<meta property="article:author" content="Duke Luo">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+  <title>MIT 6.00.1x  计算机科学和Python编程导论  Set 2 | 晒网</title>
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS&#x2F;woiFS3uNKo8eIuni59rjyNGtXfstRzStA&#x3D;" crossorigin="anonymous">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo&#x3D;" defer crossorigin="anonymous"></script>
+
+  
+  
+    
+<script src="/js/toc.js" defer></script>
+
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js" defer></script>
+
+    
+<script src="/js/fingerprint.js" defer></script>
+
+    
+<script src="/js/gist.js" defer></script>
+
+    
+<script src="/js/like.js" defer type="module"></script>
+
+  
+  
+<script src="/js/script.js" defer></script>
+
+  
+<script src="/js/search.js" defer></script>
+
+  
+<script src="/js/chocolate.js" defer></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP&#x2F;HTHLT7097U8Y5b8&#x3D;" crossorigin="anonymous" defer></script>
+
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="晒网" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header" class="post-header">
+    <div id="header-inner">
+        <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+                <a class="main-nav-link" href="/">Home</a>
+            
+                <a class="main-nav-link" href="/categories">Category</a>
+            
+                <a class="main-nav-link" href="/archives">Archive</a>
+            
+        </nav>
+        <nav id="sub-nav">
+            <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        </nav>
+        <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dukeluo.github.io"></form>
+        </div>
+    </div>
+</header>
+
+      <div class="post-outer" data-post-title="MIT 6.00.1x  计算机科学和Python编程导论  Set 2" id="post">
+  <section class="post-toc">
+    <aside class="post-fixed-container">
+  <div class="toc-wrap">
+  <h3 class="toc-title">目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Paying-Off-Credit-Card-Debt"><span class="toc-text">Paying Off Credit Card Debt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-1-Paying-the-Minimum"><span class="toc-text">Problem 1: Paying the Minimum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-2-Paying-Debt-Off-In-a-Year"><span class="toc-text">Problem 2: Paying Debt Off In a Year</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-3-Using-Bisection-Search-to-Make-the-Program-Faster"><span class="toc-text">Problem 3: Using Bisection Search to Make the Program Faster</span></a></li></ol>
+</div>
+
+  
+    <div id="post-like" data-token="MTBiZjhlNDE3YjA3Y2VmMWFmZmZhMTAxYzMzNzM3Mjk3MjRjYzViNQ==">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+</div>
+
+  
+</aside>
+
+  </section>
+  <section class="post-main">
+    <article id="post-MIT-6.00.1x-Set2" class="h-entry article article-type-post"
+  itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <p class="article-date">
+  <time class="dt-published" datetime="2017-03-04T16:00:00.000Z" itemprop="datePublished">2017-03-05</time>
+</p>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      MIT 6.00.1x  计算机科学和Python编程导论  Set 2
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Paying-Off-Credit-Card-Debt"><a href="#Paying-Off-Credit-Card-Debt" class="headerlink" title="Paying Off Credit Card Debt"></a>Paying Off Credit Card Debt</h3><p>Each month, a credit card statement will come with the option for you to pay a minimum amount of your charge, usually 2% of the balance due. However, the credit card company earns money by charging interest on the balance that you don’t pay. So even if you pay credit card payments on time, interest is still accruing on the outstanding balance.</p>
+<span id="more"></span>
+
+<p>You can think about this in the following way.</p>
+<p>At the beginning of month 0 (when the credit card statement arrives), assume you owe an amount we will call <em>b<sub>0</sub></em> (b for <em>balance</em>; subscript <em>0</em> to indicate this is the balance at month 0).</p>
+<p>Any payment you make during that month is deducted from the balance. Let’s call the payment you make in month 0, <em>p<sub>0</sub></em>. Thus, your unpaid balance for month 0, <em>ub<sub>0</sub></em>, is equal to <em>b<sub>0</sub>-p<sub>0</sub></em>.<br><em>ub<sub>0</sub>=b<sub>0</sub>-p<sub>0</sub></em></p>
+<p>At the beginning of month 1, the credit card company will charge you interest on your unpaid balance. So if your annual interest rate is <em>r</em>, then at the beginning of month 1, your new balance is your previous unpaid balance <em>ub<sub>0</sub></em>, plus the interest on this unpaid balance for the month. In algebra, this new balance would be<br><em>b<sub>1</sub>=ub<sub>0</sub>+r/12.0</em>ub<sub>0</sub>*                            </p>
+<p>In month 1, we will make another payment,  <em>p<sub>1</sub></em> . That payment has to cover some of the interest costs, so it does not completely go towards paying off the original charge. The balance at the beginning of month 2, <em>b<sub>2</sub></em>, can be calculated by first calculating the unpaid balance after paying <em>p<sub>1</sub></em>, then by adding the interest accrued:<br><em>ub<sub>1</sub>=b<sub>1</sub>-p<sub>1</sub>,</em><br><em>b<sub>2</sub>=ub<sub>1</sub>+r/12.0</em>ub<sub>1</sub>*</p>
+<p>If you choose just to pay off the minimum monthly payment each month, you will see that the compound interest will dramatically reduce your ability to lower your debt.</p>
+<p>Let’s look at an example. If you’ve got a $5,000 balance on a credit card with 18% annual interest rate, and the minimum monthly payment is 2% of the current balance, we would have the following repayment schedule if you only pay the minimum payment each month:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Balance</th>
+<th>Minimum Payment</th>
+<th>Unpaid Balance</th>
+<th>Interest</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>5000.00</td>
+<td>100(=5000* 0.02)</td>
+<td>4900(=5000- 100)</td>
+<td>73.50(=0.18/12.0 * 4900)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4973.50(=4900 + 73.50)</td>
+<td>99.47(=4973.50 * 0.02)</td>
+<td>4874.03(=4973.50 - 99.47)</td>
+<td>73.11(=0.18/12.0 * 4874.03)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4947.14(=4874.03 + 73.11)</td>
+<td>98.94(=4947.14 * 0.02)</td>
+<td>4848.20(=4947.14 - 98.94)</td>
+<td>72.72(=0.18/12.0 * 4848.20)</td>
+</tr>
+<tr>
+<td>You can see that a lot of your payment is going to cover interest, and if you work this through month 12, you will see that after a year, you will have paid $1165.63 and yet you will still owe $4691.11 on what was originally a $5000.00 debt. Pretty depressing!</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Problem-1-Paying-the-Minimum"><a href="#Problem-1-Paying-the-Minimum" class="headerlink" title="Problem 1: Paying the Minimum"></a>Problem 1: Paying the Minimum</h3><p>Write a program to calculate the credit card balance after one year if a person only pays the minimum monthly payment required by the credit card company each month.</p>
+<p>The following variables contain values as described below:</p>
+<pre><code>balance - the outstanding balance on the credit card
+nualInterestRate - annual interest rate as a decimal
+monthlyPaymentRate - minimum monthly payment rate as a decimal
+</code></pre>
+<p>For each month, calculate statements on the monthly payment and remaining balance, and print to screen something of the format:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Month: <span class="number">1</span></span><br><span class="line">Minimum monthly payment: <span class="number">96.0</span></span><br><span class="line">Remaining balance: <span class="number">4784.0</span></span><br></pre></td></tr></table></figure>
+<p>Be sure to print out no more than two decimal digits of accuracy - so print<br><code>Remaining balance: 813.41</code><br>instead of<br><code>Remaining balance: 813.4141998135</code><br>Finally, print out the total amount paid that year and the remaining balance at the end of the year in the format:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Total paid: <span class="number">96.0</span></span><br><span class="line">Remaining balance: <span class="number">4784.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>A summary of the required math is found below:</p>
+<pre><code>Monthly interest rate= (Annual interest rate) / 12.0
+Minimum monthly payment = (Minimum monthly payment rate) x (Previous balance)
+Monthly unpaid balance = (Previous balance) - (Minimum monthly payment)
+Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">monBalance=balance</span><br><span class="line">totalPay=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> month <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">13</span>):</span><br><span class="line">    minPayment=monBalance * monthlyPaymentRate</span><br><span class="line">    restBalance=monBalance - minPayment</span><br><span class="line">    interest=restBalance * (annualInterestRate/<span class="number">12.0</span>)</span><br><span class="line">    monBalance =restBalance + interest</span><br><span class="line">    totalPay+=minPayment</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;Month:&#x27;</span>+<span class="built_in">str</span>(month)</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;Minimum monthly payment:&#x27;</span>+<span class="string">&#x27;%.2f&#x27;</span> % minPayment <span class="comment">#保留两位小数</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;Remaining balance:&#x27;</span>+<span class="string">&#x27;%.2f&#x27;</span> % monBalance</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;Total paid:&#x27;</span>+<span class="string">&#x27;%.2f&#x27;</span> % totalPay</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;Remaining balance:&#x27;</span>+<span class="string">&#x27;%.2f&#x27;</span> % monBalance</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Problem-2-Paying-Debt-Off-In-a-Year"><a href="#Problem-2-Paying-Debt-Off-In-a-Year" class="headerlink" title="Problem 2: Paying Debt Off In a Year"></a>Problem 2: Paying Debt Off In a Year</h3><p>Now write a program that calculates the minimum fixed monthly payment needed in order pay off a credit card balance within 12 months. By a fixed monthly payment, we mean a single number which does not change each month, but instead is a constant amount that will be paid each month.</p>
+<p>In this problem, we will not be dealing with a minimum monthly payment rate.</p>
+<p>The following variables contain values as described below:</p>
+<pre><code>balance - the outstanding balance on the credit card
+annualInterestRate - annual interest rate as a decimal
+</code></pre>
+<p>The program should print out one line: the lowest monthly payment that will pay off all debt in under 1 year, for example:<br><code>Lowest Payment: 180 </code></p>
+<p>Assume that the interest is compounded monthly according to the balance at the end of the month (after the payment for that month is made). The monthly payment must be a multiple of $10 and is the same for all months. Notice that it is possible for the balance to become negative using this payment scheme, which is okay. A summary of the required math is found below:</p>
+<pre><code>Monthly interest rate = (Annual interest rate) / 12.0
+Monthly unpaid balance = (Previous balance) - (Minimum monthly payment)
+Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pay=<span class="number">10</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    unpaidBalance=balance</span><br><span class="line">    <span class="keyword">for</span> month <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>):   <span class="comment">#重复12次</span></span><br><span class="line">        unpaidBalance-=pay</span><br><span class="line">        unpaidBalance=unpaidBalance + unpaidBalance * (annualInterestRate /<span class="number">12.0</span>)</span><br><span class="line">    <span class="keyword">if</span> unpaidBalance &lt;=<span class="number">0</span>:     <span class="comment">#小于或等于零时退出循环</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&#x27;Lowest Payment: &#x27;</span>+<span class="built_in">str</span>(pay)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        pay+=<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Problem-3-Using-Bisection-Search-to-Make-the-Program-Faster"><a href="#Problem-3-Using-Bisection-Search-to-Make-the-Program-Faster" class="headerlink" title="Problem 3: Using Bisection Search to Make the Program Faster"></a>Problem 3: Using Bisection Search to Make the Program Faster</h3><p>You’ll notice that in Problem 2, your monthly payment had to be a multiple of $10. Why did we make it that way? You can try running your code locally so that the payment can be any dollar and cent amount (in other words, the monthly payment is a multiple of $0.01). Does your code still work? It should, but you may notice that your code runs more slowly, especially in cases with very large balances and interest rates. (Note: when your code is running on our servers, there are limits on the amount of computing time each submission is allowed, so your observations from running this experiment on the grading system might be limited to an error message complaining about too much time taken.)</p>
+<p>Well then, how can we calculate a more accurate fixed monthly payment than we did in Problem 2 without running into the problem of slow code? We can make this program run faster using a technique introduced in lecture - bisection search!</p>
+<p>The following variables contain values as described below:</p>
+<pre><code>balance - the outstanding balance on the credit card
+annualInterestRate - annual interest rate as a decimal
+</code></pre>
+<p>To recap the problem: we are searching for the smallest monthly payment such that we can pay off the entire balance within a year. What is a reasonable lower bound for this payment value? $0 is the obvious anwer, but you can do better than that. If there was no interest, the debt can be paid off by monthly payments of one-twelfth of the original balance, so we must pay at least this much every month. One-twelfth of the original balance is a good lower bound.</p>
+<p>What is a good upper bound? Imagine that instead of paying monthly, we paid off the entire balance at the end of the year. What we ultimately pay must be greater than what we would’ve paid in monthly installments, because the interest was compounded on the balance we didn’t pay off each month. So a good upper bound for the monthly payment would be one-twelfth of the balance, after having its interest compounded monthly for an entire year.<br>In short:</p>
+<pre><code>Monthly interest rate = (Annual interest rate) / 12.0
+Monthly payment lower bound = Balance / 12
+Monthly payment upper bound = (Balance x (1 + Monthly interest rate)12) / 12.0
+</code></pre>
+<p>Write a program that uses these bounds and bisection search (for more info check out the Wikipedia page on bisection search) to find the smallest monthly payment to the cent (no more multiples of $10) such that we can pay off the debt within a year. Try it out with large inputs, and notice how fast it is (try the same large inputs in your solution to Problem 2 to compare!). Produce the same return value as you did in Problem 2.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">lowerBound = balance / <span class="number">12</span></span><br><span class="line">upperBound = (balance * (<span class="number">1</span> + annualInterestRate / <span class="number">12.0</span>) ** <span class="number">12</span>) / <span class="number">12.0</span>        </span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        pay = (lowerBound + upperBound) / <span class="number">2.0</span></span><br><span class="line">        unpaidBalance=balance</span><br><span class="line">        <span class="keyword">for</span> month <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>):</span><br><span class="line">                unpaidBalance-=pay</span><br><span class="line">                unpaidBalance=unpaidBalance + unpaidBalance * (annualInterestRate /<span class="number">12.0</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(unpaidBalance - <span class="number">0</span>) &lt;=<span class="number">0.01</span>:  <span class="comment">#控制精度</span></span><br><span class="line">                <span class="built_in">print</span> <span class="string">&#x27;Lowest Payment: &#x27;</span>+<span class="string">&#x27;%.2f&#x27;</span> % pay</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> unpaidBalance &gt; <span class="number">0</span>:</span><br><span class="line">                        lowerBound = pay</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                        upperBound = pay</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="copyright">
+  <p><a href="https://dukeluo.github.io/2017/03/05/MIT-6.00.1x-Set2.html">https://dukeluo.github.io/2017/03/05/MIT-6.00.1x-Set2.html</a></p>
+  <p>本作品采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可</p>
+</div>
+
+      
+      
+  <div id="article-tag">
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  </div>
+
+
+      
+        <div class="article-share-links">
+  <a href="https://twitter.com/intent/tweet?text=MIT%206.00.1x%20%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%92%8CPython%E7%BC%96%E7%A8%8B%E5%AF%BC%E8%AE%BA%20%20Set%202&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F05%2FMIT-6.00.1x-Set2.html"
+    class="article-share-twitter" target="_blank" title="Twitter"></a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F05%2FMIT-6.00.1x-Set2.html"
+    class="article-share-facebook" target="_blank" title="Facebook"></a>
+  ​<a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F05%2FMIT-6.00.1x-Set2.html"
+    class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+  ​<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F05%2FMIT-6.00.1x-Set2.html"
+    class="article-share-linkedin" target="_blank" title="LinkedIn"></a>
+</div>
+
+      
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav">
+    
+      <a href="/2017/03/06/record-PiPiXia.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">阅读下一篇</h4>
+        <div class="article-nav-title">小游戏《Let&#39;s Go! PiPiXia!》</div>
+      </a>
+    
+    
+      <a href="/2017/02/28/python-name.html" id="article-nav-older" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">可能会喜欢</h4>
+        <div class="article-nav-title">关于python变量名的几点注意</div>
+      </a>
+    
+  </nav>
+
+
+  
+</article>
+
+    
+      <div class="gitalk">
+  
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js" integrity="sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;" crossorigin="anonymous"></script>
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt&#x2F;Hn&#x2F;PvYZde1iqfp8U&#x3D;" crossorigin="anonymous">
+
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    // eslint-disable-next-line no-undef
+    let gitalk = new Gitalk({
+      clientID: '2ed7f9c25568fea2ee69',
+      clientSecret: '758d4a3ec0cdddb2cc6d321de02e3f26545edb93',
+      id: window.location.pathname,
+      repo: 'DukeLuo.github.io',
+      owner: 'DukeLuo',
+      admin: 'DukeLuo',
+      distractionFreeMode: true
+    });
+
+    gitalk.render('gitalk-container');
+  </script>
+</div>
+
+    
+  </section>
+  <section class="post-sidebar">
+    <aside>
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algs4/" rel="tag">Algs4</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Candelas/" rel="tag">Candelas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Actions/" rel="tag">Github Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hook/" rel="tag">Hook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-R/" rel="tag">K&R</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SICP/" rel="tag">SICP</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/" rel="tag">Scheme</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glob/" rel="tag">glob</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html2canvas/" rel="tag">html2canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsPDF/" rel="tag">jsPDF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" rel="tag">事件对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E4%BD%8D/" rel="tag">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%AE%E5%8A%A8/" rel="tag">浮动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/" rel="tag">除草计划</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/01/16/glob-match-naming-convention.html">Using Glob Patterns to Match Common Naming Conventions</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/12/eslint-plugin-check-file.html">使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/09/docker-npm-install-error.html">docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/22/blog-clean-plan-3.html">博客除草计划（三）：Candelas 发布，使用新主题部署博客</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/19/react-useeffect.html">React useEffect 函数体和返回体的执行次数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap">
+  <h3 class="widget-title">
+    关于我
+  </h3>
+  <div class="widget">
+    <div class="profile">
+      <div class="motto">
+        
+          <p class="source"><span>左传·曹刿论战</span></p>
+        
+        <div class="quote">&#10077;</div>
+        <p class="content">夫战，勇气也。一鼓作气，再而衰，三而竭。</p>
+        <div class="close quote">&#10077;</div>
+      </div>
+      <div class="basic">
+        <div class="avatar"></div>
+        <div class="info">
+          <h2 class="name">DukeLuo</h2>
+          <h3 class="location">Wuhan</h3>
+        </div>
+      </div>
+      <div class="links">
+        
+          <a id="github-link" class="profile-link" target="_blank" rel="noopener" href="https://github.com/DukeLuo" title="GitHub"></a>
+        
+        
+          <a id="email-link" class="profile-link" href="mailto:dukeluo@outlook.com" title="邮箱"></a>
+        
+        
+          <a id="rss-link" class="profile-link" href="/atom.xml" title="RSS"></a>
+        
+      </div>
+    </div>
+    
+      <div class="holder">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+      </div>
+    
+  </div>
+</div>
+
+</aside>
+
+  </section>
+</div>
+
+
+      <footer id="footer">
+  <p>Copyright &copy; 2022 晒网</p>
+  <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> • Theme <a
+                href="https://github.com/DukeLuo/hexo-theme-candelas" target="_blank">Candelas</a></p>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archive</a>
+  
+</nav>
+
+  </div>
+</body>
+</html>

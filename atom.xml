@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>晒网</title>
+  
+  <subtitle>Knowledge is Power</subtitle>
+  <link href="https://dukeluo.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://dukeluo.github.io/"/>
+  <updated>2022-03-26T15:00:36.801Z</updated>
+  <id>https://dukeluo.github.io/</id>
+  
+  <author>
+    <name>Duke Luo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Using Glob Patterns to Match Common Naming Conventions</title>
+    <link href="https://dukeluo.github.io/2022/01/16/glob-match-naming-convention.html"/>
+    <id>https://dukeluo.github.io/2022/01/16/glob-match-naming-convention.html</id>
+    <published>2022-01-15T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:36.801Z</updated>
+    
+    
+    <summary type="html">Some glob aatterns for matching common naming conventions, including `CAMEL_CASE`, `PASCAL_CASE`, `SNAKE_CASE`, `KEBAB_CASE`, `SCREAMING_SNAKE_CASE` and `FLAT_CASE`</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="eslint" scheme="https://dukeluo.github.io/tags/eslint/"/>
+    
+    <category term="glob" scheme="https://dukeluo.github.io/tags/glob/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</title>
+    <link href="https://dukeluo.github.io/2022/01/12/eslint-plugin-check-file.html"/>
+    <id>https://dukeluo.github.io/2022/01/12/eslint-plugin-check-file.html</id>
+    <published>2022-01-11T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:37.854Z</updated>
+    
+    
+    <summary type="html">发布 eslint-plugin-check-file 插件，介绍如何使用 eslint-plugin-check-file 插件来规范测试文件的文件夹。</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    
+    <category term="eslint" scheme="https://dukeluo.github.io/tags/eslint/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</title>
+    <link href="https://dukeluo.github.io/2021/11/09/docker-npm-install-error.html"/>
+    <id>https://dukeluo.github.io/2021/11/09/docker-npm-install-error.html</id>
+    <published>2021-11-08T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:15.088Z</updated>
+    
+    
+    <summary type="html">记录 docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory 和 npm ERR! code ENOENT npm ERR! syscall spawn git npm ERR! path git npm ERR! errno -2 npm ERR! enoent spawn git ENOENT 的解决方法。</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="docker" scheme="https://dukeluo.github.io/tags/docker/"/>
+    
+    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客除草计划（三）：Candelas 发布，使用新主题部署博客</title>
+    <link href="https://dukeluo.github.io/2021/10/22/blog-clean-plan-3.html"/>
+    <id>https://dukeluo.github.io/2021/10/22/blog-clean-plan-3.html</id>
+    <published>2021-10-21T16:00:00.000Z</published>
+    <updated>2022-03-27T01:57:31.096Z</updated>
+    
+    
+    <summary type="html">介绍 Hexo 博客全新主题 Candelas。</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="除草计划" scheme="https://dukeluo.github.io/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
+    
+    <category term="Candelas" scheme="https://dukeluo.github.io/tags/Candelas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React useEffect 函数体和返回体的执行次数</title>
+    <link href="https://dukeluo.github.io/2021/06/19/react-useeffect.html"/>
+    <id>https://dukeluo.github.io/2021/06/19/react-useeffect.html</id>
+    <published>2021-06-18T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:27.315Z</updated>
+    
+    
+    <summary type="html">介绍 useEffect 的函数体和返回体在不同依赖、不同生命周期下的执行次数情况。</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="React" scheme="https://dukeluo.github.io/tags/React/"/>
+    
+    <category term="Hook" scheme="https://dukeluo.github.io/tags/Hook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 patch-package 修改第三方依赖库</title>
+    <link href="https://dukeluo.github.io/2021/03/07/modify-third-package.html"/>
+    <id>https://dukeluo.github.io/2021/03/07/modify-third-package.html</id>
+    <published>2021-03-06T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:14.627Z</updated>
+    
+    
+    <summary type="html">介绍一种修改第三方依赖库的方法，使用 patch-package 库生成补丁，结合 npm 勾子修改源代码，达到修改的目的。</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 git rebase 合并历史提交和修改记录 Commit Message</title>
+    <link href="https://dukeluo.github.io/2020/05/07/git-rebase.html"/>
+    <id>https://dukeluo.github.io/2020/05/07/git-rebase.html</id>
+    <published>2020-05-06T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:37.710Z</updated>
+    
+    
+    <summary type="html">使用 git rebase 命令合并历史提交和修改记录 Commit Message</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="git" scheme="https://dukeluo.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客除草计划（二）：GitHub Pages Deploy Action 部署 hexo 博客</title>
+    <link href="https://dukeluo.github.io/2020/04/14/blog-clean-plan-2.html"/>
+    <id>https://dukeluo.github.io/2020/04/14/blog-clean-plan-2.html</id>
+    <published>2020-04-13T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:27.953Z</updated>
+    
+    
+    <summary type="html">记录使用 GitHub Pages Deploy Action 部署 hexo 博客主题 Candelas 演示站遇到的问题。</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="除草计划" scheme="https://dukeluo.github.io/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
+    
+    <category term="Github Actions" scheme="https://dukeluo.github.io/tags/Github-Actions/"/>
+    
+    <category term="Candelas" scheme="https://dukeluo.github.io/tags/Candelas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客除草计划（一）：使用 Backblaze、Cloudflare 和 rclone 管理博客图片</title>
+    <link href="https://dukeluo.github.io/2020/02/12/blog-clean-plan-1.html"/>
+    <id>https://dukeluo.github.io/2020/02/12/blog-clean-plan-1.html</id>
+    <published>2020-02-11T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:19.237Z</updated>
+    
+    
+    <summary type="html">博客除草计划的第一节，记录使用 Backblaze B2、Cloudflare 和 rclone 等工具管理博客图片的过程</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="除草计划" scheme="https://dukeluo.github.io/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从 html 到 pdf，为 Slowly 信件换衣裳</title>
+    <link href="https://dukeluo.github.io/2020/02/08/slowly-html-pdf.html"/>
+    <id>https://dukeluo.github.io/2020/02/08/slowly-html-pdf.html</id>
+    <published>2020-02-07T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:19.088Z</updated>
+    
+    
+    <summary type="html">记录 Slowly 信件从 html 到 pdf 的换装之旅</summary>
+    
+    
+    
+    <category term="实战" scheme="https://dukeluo.github.io/categories/%E5%AE%9E%E6%88%98/"/>
+    
+    
+    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    
+    <category term="小项目" scheme="https://dukeluo.github.io/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="jsPDF" scheme="https://dukeluo.github.io/tags/jsPDF/"/>
+    
+    <category term="html2canvas" scheme="https://dukeluo.github.io/tags/html2canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>千山助手，开发之初体验</title>
+    <link href="https://dukeluo.github.io/2018/11/10/practice-qianshan.html"/>
+    <id>https://dukeluo.github.io/2018/11/10/practice-qianshan.html</id>
+    <published>2018-11-09T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.454Z</updated>
+    
+    
+    <summary type="html">记录第一次实现需求的开发过程。</summary>
+    
+    
+    
+    <category term="实战" scheme="https://dukeluo.github.io/categories/%E5%AE%9E%E6%88%98/"/>
+    
+    
+    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    
+    <category term="小项目" scheme="https://dukeluo.github.io/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="jQuery" scheme="https://dukeluo.github.io/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>翻译 | 深入理解JavaScirpt的函数调用和&quot;this&quot;</title>
+    <link href="https://dukeluo.github.io/2018/07/31/javascript-invocation-this.html"/>
+    <id>https://dukeluo.github.io/2018/07/31/javascript-invocation-this.html</id>
+    <published>2018-07-30T16:00:00.000Z</published>
+    <updated>2022-03-26T15:00:39.242Z</updated>
+    
+    
+    <summary type="html">翻译文章：[Understanding JavaScript Function Invocation and &quot;this&quot;](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)。</summary>
+    
+    
+    
+    <category term="翻译" scheme="https://dukeluo.github.io/categories/%E7%BF%BB%E8%AF%91/"/>
+    
+    
+    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    
+    <category term="this" scheme="https://dukeluo.github.io/tags/this/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS学习（二）：背景图片如何定位？</title>
+    <link href="https://dukeluo.github.io/2018/07/10/css-bgposition.html"/>
+    <id>https://dukeluo.github.io/2018/07/10/css-bgposition.html</id>
+    <published>2018-07-09T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.434Z</updated>
+    
+    
+    <summary type="html">利用平面直角坐标系介绍css背景属性`background-position`定位的原理。</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
+    
+    <category term="定位" scheme="https://dukeluo.github.io/tags/%E5%AE%9A%E4%BD%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DOM中事件处理程序的第一个参数？</title>
+    <link href="https://dukeluo.github.io/2018/06/20/dom-event-1.html"/>
+    <id>https://dukeluo.github.io/2018/06/20/dom-event-1.html</id>
+    <published>2018-06-19T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.438Z</updated>
+    
+    
+    <summary type="html">关于DOM中事件处理程序第一个参数是事件对象的理解。</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="事件对象" scheme="https://dukeluo.github.io/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"/>
+    
+    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    
+    <category term="DOM" scheme="https://dukeluo.github.io/tags/DOM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一道Leetcode题引起的思考：Segmentation fault是什么？</title>
+    <link href="https://dukeluo.github.io/2018/06/15/c-segfault.html"/>
+    <id>https://dukeluo.github.io/2018/06/15/c-segfault.html</id>
+    <published>2018-06-14T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.433Z</updated>
+    
+    
+    <summary type="html">介绍C语言中的Segmentation fault错误。</summary>
+    
+    
+    
+    <category term="编程语言" scheme="https://dukeluo.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="C" scheme="https://dukeluo.github.io/tags/C/"/>
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS学习（一）：清除浮动</title>
+    <link href="https://dukeluo.github.io/2018/05/13/css-clearfix.html"/>
+    <id>https://dukeluo.github.io/2018/05/13/css-clearfix.html</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.435Z</updated>
+    
+    
+    <summary type="html">介绍清除浮动的常用方法。</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
+    
+    <category term="浮动" scheme="https://dukeluo.github.io/tags/%E6%B5%AE%E5%8A%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>官方支持，Hexo博客自定义域名开启HTTPS</title>
+    <link href="https://dukeluo.github.io/2018/05/08/hexo-https.html"/>
+    <id>https://dukeluo.github.io/2018/05/08/hexo-https.html</id>
+    <published>2018-05-07T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.444Z</updated>
+    
+    
+    <summary type="html">GitHub宣布支持自定义域名HTTPS，记录Hexo博客开启HTTPS的过程。</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="Hexo" scheme="https://dukeluo.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剖析链表，链表常用操作集合</title>
+    <link href="https://dukeluo.github.io/2018/05/04/linkedlist-1.html"/>
+    <id>https://dukeluo.github.io/2018/05/04/linkedlist-1.html</id>
+    <published>2018-05-03T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.450Z</updated>
+    
+    
+    <summary type="html">介绍面试中常见的链表操作。</summary>
+    
+    
+    
+    <category term="算法" scheme="https://dukeluo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    
+    <category term="链表" scheme="https://dukeluo.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>定制自己的Hexo博客主题Landscape</title>
+    <link href="https://dukeluo.github.io/2018/04/20/hexo-customization-1.html"/>
+    <id>https://dukeluo.github.io/2018/04/20/hexo-customization-1.html</id>
+    <published>2018-04-19T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.443Z</updated>
+    
+    
+    <summary type="html">个性化定制Hexo博客主题Landscape。</summary>
+    
+    
+    
+    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="Hexo" scheme="https://dukeluo.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algs4笔记（七） --- 符号表与二叉查找树</title>
+    <link href="https://dukeluo.github.io/2018/04/15/algs4-notes-7.html"/>
+    <id>https://dukeluo.github.io/2018/04/15/algs4-notes-7.html</id>
+    <published>2018-04-14T16:00:00.000Z</published>
+    <updated>2022-03-26T14:52:41.431Z</updated>
+    
+    
+    <summary type="html">介绍符号表与二叉查找树。</summary>
+    
+    
+    
+    <category term="算法" scheme="https://dukeluo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="Notes" scheme="https://dukeluo.github.io/tags/Notes/"/>
+    
+    <category term="Algs4" scheme="https://dukeluo.github.io/tags/Algs4/"/>
+    
+    <category term="Java" scheme="https://dukeluo.github.io/tags/Java/"/>
+    
+  </entry>
+  
+</feed>

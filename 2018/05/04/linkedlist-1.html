@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="介绍面试中常见的链表操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剖析链表，链表常用操作集合">
+<meta property="og:url" content="https://dukeluo.github.io/2018/05/04/linkedlist-1.html">
+<meta property="og:site_name" content="晒网">
+<meta property="og:description" content="介绍面试中常见的链表操作。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-26T14:52:41.450Z">
+<meta property="article:author" content="Duke Luo">
+<meta property="article:tag" content="总结">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="链表">
+<meta name="twitter:card" content="summary">
+  <title>剖析链表，链表常用操作集合 | 晒网</title>
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS&#x2F;woiFS3uNKo8eIuni59rjyNGtXfstRzStA&#x3D;" crossorigin="anonymous">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo&#x3D;" defer crossorigin="anonymous"></script>
+
+  
+  
+    
+<script src="/js/toc.js" defer></script>
+
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js" defer></script>
+
+    
+<script src="/js/fingerprint.js" defer></script>
+
+    
+<script src="/js/gist.js" defer></script>
+
+    
+<script src="/js/like.js" defer type="module"></script>
+
+  
+  
+<script src="/js/script.js" defer></script>
+
+  
+<script src="/js/search.js" defer></script>
+
+  
+<script src="/js/chocolate.js" defer></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP&#x2F;HTHLT7097U8Y5b8&#x3D;" crossorigin="anonymous" defer></script>
+
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="晒网" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header" class="post-header">
+    <div id="header-inner">
+        <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+                <a class="main-nav-link" href="/">Home</a>
+            
+                <a class="main-nav-link" href="/categories">Category</a>
+            
+                <a class="main-nav-link" href="/archives">Archive</a>
+            
+        </nav>
+        <nav id="sub-nav">
+            <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        </nav>
+        <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dukeluo.github.io"></form>
+        </div>
+    </div>
+</header>
+
+      <div class="post-outer" data-post-title="剖析链表，链表常用操作集合" id="post">
+  <section class="post-toc">
+    <aside class="post-fixed-container">
+  <div class="toc-wrap">
+  <h3 class="toc-title">目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8"><span class="toc-text">数组和链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="toc-text">查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-text">删除</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%90%AB%E6%9C%89%E7%BB%99%E5%AE%9A%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89%E7%BB%93%E7%82%B9"><span class="toc-text">删除含有给定值的所有结点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E7%BB%93%E7%82%B9"><span class="toc-text">删除重复结点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9"><span class="toc-text">删除倒数第n个结点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-text">反转链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="toc-text">归并有序链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E4%BA%A4%E9%9B%86"><span class="toc-text">链表的交集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%9C%89%E7%8E%AF"><span class="toc-text">判断是否有环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
+</div>
+
+  
+    <div id="post-like" data-token="MTBiZjhlNDE3YjA3Y2VmMWFmZmZhMTAxYzMzNzM3Mjk3MjRjYzViNQ==">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+</div>
+
+  
+</aside>
+
+  </section>
+  <section class="post-main">
+    <article id="post-linkedlist-1" class="h-entry article article-type-post"
+  itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <p class="article-date">
+  <time class="dt-published" datetime="2018-05-03T16:00:00.000Z" itemprop="datePublished">2018-05-04</time>
+</p>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      剖析链表，链表常用操作集合
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在读SICP的时候，我就接触了里面的基本数据结构序对(Pairs)，那时还没有学习数据结构，没想到就是链表。链表是一种递归的数据结构，<code>Scheme</code>是一种函数式编程语言，<code>Scheme</code>程序随处可见递归，用它来做基本的数据结构再合适不过了。本文介绍的链表操作多数来源于<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=linked-list">LeetCode上链表专题</a>上的算法题。</p>
+<span id="more"></span>
+
+<h3 id="数组和链表"><a href="#数组和链表" class="headerlink" title="数组和链表"></a>数组和链表</h3><p>数组和链表都是线性数据结构，但和数组不同的是，链表不是连续存储，需要额外的空间来存储结点间的逻辑关系。数组很常见，常见语言中数组都有实现，是基本的数据结构。与链表相比，它不要额外内存、支持随即访问，但也有缺点，首先是需要预先分配空间，再次是插入、删除操作成本太高，需要频繁移动。链表则是完全相反，数组的缺点都是它的长处。</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>链表结点的实现如下，各个操作都基于这个结点实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListNode</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.val = val;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在链表中查找一个值，因为链表的结构特性，使用<code>for</code>语句可以很自然地完成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getNode = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ptr;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ptr = head; ptr !== <span class="literal">null</span>; ptr = ptr.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n === ptr.val) &#123;</span><br><span class="line">            <span class="keyword">return</span> ptr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><h4 id="删除含有给定值的所有结点"><a href="#删除含有给定值的所有结点" class="headerlink" title="删除含有给定值的所有结点"></a>删除含有给定值的所有结点</h4><p>给定链表，删除链表中和给定值相等的所有结点，详细描述见<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-linked-list-elements/description/">此</a>，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> removeElements = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ptr,</span><br><span class="line">        prev;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ptr = head;</span><br><span class="line">    prev = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">while</span> (ptr !== <span class="literal">null</span> &amp;&amp; n === ptr.val) &#123;</span><br><span class="line">        head = ptr.next;</span><br><span class="line">        ptr = ptr.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (; ptr !== <span class="literal">null</span>; ptr = ptr.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n === ptr.val) &#123;</span><br><span class="line">            prev.next = ptr.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        prev = ptr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面<code>while</code>语句是处理边界情况的，就是当链表开头的结点都是要删除的结点时的情况，还有另一种处理方法，使用哑结点，可以便利处理边界情况。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> removeElements = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dummyNode,</span><br><span class="line">        prev;</span><br><span class="line"></span><br><span class="line">    dummyNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    dummyNode.next = head;</span><br><span class="line">    prev = dummyNode;</span><br><span class="line">    <span class="keyword">for</span> (; head !== <span class="literal">null</span>; head = head.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n === head.val) &#123;</span><br><span class="line">            prev.next = head.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            prev = head;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>最后的递归大法，简洁优雅。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> removeElements = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n === head.val) &#123;</span><br><span class="line">        head = removeElements(head.next, n);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        head.next = removeElements(head.next, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除重复结点"><a href="#删除重复结点" class="headerlink" title="删除重复结点"></a>删除重复结点</h4><p>给定有序链表，删除链表中的所有重复项，详细描述见<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/">此</a>，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> deleteDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ptr;</span><br><span class="line"></span><br><span class="line">    ptr = head;</span><br><span class="line">    <span class="keyword">while</span> (ptr !== <span class="literal">null</span> &amp;&amp; ptr.next !== <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ptr.val === ptr.next.val) &#123;</span><br><span class="line">            ptr.next = ptr.next.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ptr = ptr.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>递归思路和上面类似，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> deleteDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span> || head.next === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (head.val === head.next.val) &#123;</span><br><span class="line">        head = deleteDuplicates(head.next);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        head.next = deleteDuplicates(head.next);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除倒数第n个结点"><a href="#删除倒数第n个结点" class="headerlink" title="删除倒数第n个结点"></a>删除倒数第n个结点</h4><p>给定链表，从列表末尾删除第n个结点，题目详细描述见<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/">此</a>，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> removeNthFromEnd = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dummyNode,</span><br><span class="line">        len;</span><br><span class="line">    </span><br><span class="line">    dummyNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    dummyNode.next = head;</span><br><span class="line">    len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (head !== <span class="literal">null</span>) &#123;</span><br><span class="line">        len++;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    len = len - n;</span><br><span class="line">    head = dummyNode;</span><br><span class="line">    <span class="keyword">while</span> (len-- &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    head.next = head.next.next;</span><br><span class="line">    <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>此题有一个直观的解法，先求出链表的长度，然后得出在顺序的情况下此结点的位置，最后将它删除。此方法扫描链表两遍，但要求只能扫描一遍呢，我们可以使用两个指针，对一个指针延迟<code>n</code>步，当快的指针到达链表终点时，延迟的指针便指向待删除的结点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> removeNthFromEnd = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dummyNode,</span><br><span class="line">        ptr1,       <span class="comment">// quick one</span></span><br><span class="line">        ptr2;       <span class="comment">// slow one</span></span><br><span class="line">    </span><br><span class="line">    dummyNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    dummyNode.next = head;</span><br><span class="line">    ptr1 = head;</span><br><span class="line">    ptr2 = dummyNode;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (n-- &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        ptr1 = ptr1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (ptr1 !== <span class="literal">null</span>) &#123;</span><br><span class="line">        ptr1 = ptr1.next;</span><br><span class="line">        ptr2 = ptr2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ptr2.next = ptr2.next.next;</span><br><span class="line">    <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h3><p>反转一个单向链表，先是迭代版本的，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> reverseList = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prev,</span><br><span class="line">        next;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span> || head.next === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    prev = <span class="literal">null</span>;</span><br><span class="line">    next = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">while</span> (head !== <span class="literal">null</span>) &#123;</span><br><span class="line">        next = head.next;</span><br><span class="line">        head.next = prev;</span><br><span class="line">        prev = head;</span><br><span class="line">        head = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> prev;</span><br><span class="line">&#125;;    </span><br></pre></td></tr></table></figure>
+
+<p>下面是递归版本的，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> reverseList = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newHead;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span> || head.next === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    newHead = reverseList(head.next);</span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> newHead;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>与反转相关的操作还有判断单链表是否<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9B%9E%E6%96%87%E6%95%B0">回文</a>，有一种算法是，先找出链表的中点，然后反转链表的后半部分，最后前、后两部分进行比较；当然，还可以充分利用栈的性质。</p>
+<h3 id="归并有序链表"><a href="#归并有序链表" class="headerlink" title="归并有序链表"></a>归并有序链表</h3><p>归并两个有序的单向链表，题目详细描述见<a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-two-sorted-lists/description/">此</a>，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">l1</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">l2</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> mergeTwoLists = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dummyNode,</span><br><span class="line">        ptr;</span><br><span class="line">    </span><br><span class="line">    dummyNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ptr = dummyNode;</span><br><span class="line">    <span class="keyword">while</span> (l1 !== <span class="literal">null</span> &amp;&amp; l2 !== <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">            ptr.next = l1;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ptr.next = l2;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        ptr = ptr.next;</span><br><span class="line">    &#125;</span><br><span class="line">    ptr.next = l1 || l2;</span><br><span class="line">    <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>算法思想很简单，依次比较两个链表的每个结点。《算法4》讲过一种归并多个输入流的算法，使用的是一种特殊的优先队列。注意，上述代码的倒数第二行，JS中，由于逻辑或的特性，<code>ptr.next</code>将会被赋予等号后面两个值中的一个。</p>
+<h3 id="链表的交集"><a href="#链表的交集" class="headerlink" title="链表的交集"></a>链表的交集</h3><p>给定两个单链表，寻找链表的交集，详细描述在<a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-linked-lists/description/">此</a>，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">headA</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">headB</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> getIntersectionNode = <span class="function"><span class="keyword">function</span>(<span class="params">headA, headB</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ptr1, </span><br><span class="line">        ptr2;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (headA === <span class="literal">null</span> || headB === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ptr1 = headA;</span><br><span class="line">    ptr2 = headB;</span><br><span class="line">    <span class="keyword">while</span> (ptr1 !== ptr2) &#123;</span><br><span class="line">        ptr1 = (ptr1 === <span class="literal">null</span> ? headB : ptr1.next);</span><br><span class="line">        ptr2 = (ptr2 === <span class="literal">null</span> ? headA : ptr2.next);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ptr1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>此算法的核心是对每个链表遍历了两次，第一次的遍历弥补了两条链表长度的差异。开始，两个指针分别指向两条链表的首结点，当指针到达尾结点时，便指向另一条链表的首结点；之后，如果两指针相等，那么该结点就是所求的结点，如果两条链表没有交集，则两个指针都会再次到达尾结点，循环结束，返回<code>null</code>。不信的话，可以在纸上画画演算下。</p>
+<h3 id="判断是否有环"><a href="#判断是否有环" class="headerlink" title="判断是否有环"></a>判断是否有环</h3><p>给定链表判断是否有环，详细见<a target="_blank" rel="noopener" href="https://leetcode.com/problems/linked-list-cycle/description/">此</a>，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> hasCycle = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ptr1,       <span class="comment">// slow one</span></span><br><span class="line">        ptr2;       <span class="comment">// quick one</span></span><br><span class="line">    </span><br><span class="line">    ptr1 = head;</span><br><span class="line">    ptr2 = head;</span><br><span class="line">    <span class="keyword">while</span> (ptr2 !== <span class="literal">null</span> &amp;&amp; ptr2.next !== <span class="literal">null</span>) &#123;</span><br><span class="line">        ptr1 = ptr1.next;</span><br><span class="line">        ptr2 = ptr2.next.next;</span><br><span class="line">        <span class="keyword">if</span> (ptr1 === ptr2) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用两个指针，一个一次走一步，另一个一次走两步，如果链表存在环的话，两者必然会再次相遇。此外说明下，如果是没有环的情况，当快的指针到达尾结点时，此时慢的指针刚好到达链表的中点。</p>
+<hr>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/data-structures/linked-list/">Linked List Data Structure</a></li>
+<li><a target="_blank" rel="noopener" href="http://wuchong.me/blog/2014/03/25/interview-link-questions/">面试精选：链表问题集锦</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="copyright">
+  <p><a href="https://dukeluo.github.io/2018/05/04/linkedlist-1.html">https://dukeluo.github.io/2018/05/04/linkedlist-1.html</a></p>
+  <p>本作品采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可</p>
+</div>
+
+      
+      
+  <div id="article-tag">
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
+  </div>
+
+
+      
+        <div class="article-share-links">
+  <a href="https://twitter.com/intent/tweet?text=%E5%89%96%E6%9E%90%E9%93%BE%E8%A1%A8%EF%BC%8C%E9%93%BE%E8%A1%A8%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E9%9B%86%E5%90%88&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2018%2F05%2F04%2Flinkedlist-1.html"
+    class="article-share-twitter" target="_blank" title="Twitter"></a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdukeluo.github.io%2F2018%2F05%2F04%2Flinkedlist-1.html"
+    class="article-share-facebook" target="_blank" title="Facebook"></a>
+  ​<a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fdukeluo.github.io%2F2018%2F05%2F04%2Flinkedlist-1.html"
+    class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+  ​<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2018%2F05%2F04%2Flinkedlist-1.html"
+    class="article-share-linkedin" target="_blank" title="LinkedIn"></a>
+</div>
+
+      
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav">
+    
+      <a href="/2018/05/08/hexo-https.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">阅读下一篇</h4>
+        <div class="article-nav-title">官方支持，Hexo博客自定义域名开启HTTPS</div>
+      </a>
+    
+    
+      <a href="/2018/04/20/hexo-customization-1.html" id="article-nav-older" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">可能会喜欢</h4>
+        <div class="article-nav-title">定制自己的Hexo博客主题Landscape</div>
+      </a>
+    
+  </nav>
+
+
+  
+</article>
+
+    
+      <div class="gitalk">
+  
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js" integrity="sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;" crossorigin="anonymous"></script>
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt&#x2F;Hn&#x2F;PvYZde1iqfp8U&#x3D;" crossorigin="anonymous">
+
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    // eslint-disable-next-line no-undef
+    let gitalk = new Gitalk({
+      clientID: '2ed7f9c25568fea2ee69',
+      clientSecret: '758d4a3ec0cdddb2cc6d321de02e3f26545edb93',
+      id: window.location.pathname,
+      repo: 'DukeLuo.github.io',
+      owner: 'DukeLuo',
+      admin: 'DukeLuo',
+      distractionFreeMode: true
+    });
+
+    gitalk.render('gitalk-container');
+  </script>
+</div>
+
+    
+  </section>
+  <section class="post-sidebar">
+    <aside>
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algs4/" rel="tag">Algs4</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Candelas/" rel="tag">Candelas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Actions/" rel="tag">Github Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hook/" rel="tag">Hook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-R/" rel="tag">K&R</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SICP/" rel="tag">SICP</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/" rel="tag">Scheme</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glob/" rel="tag">glob</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html2canvas/" rel="tag">html2canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsPDF/" rel="tag">jsPDF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" rel="tag">事件对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E4%BD%8D/" rel="tag">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%AE%E5%8A%A8/" rel="tag">浮动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/" rel="tag">除草计划</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/01/16/glob-match-naming-convention.html">Using Glob Patterns to Match Common Naming Conventions</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/12/eslint-plugin-check-file.html">使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/09/docker-npm-install-error.html">docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/22/blog-clean-plan-3.html">博客除草计划（三）：Candelas 发布，使用新主题部署博客</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/19/react-useeffect.html">React useEffect 函数体和返回体的执行次数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap">
+  <h3 class="widget-title">
+    关于我
+  </h3>
+  <div class="widget">
+    <div class="profile">
+      <div class="motto">
+        
+          <p class="source"><span>左传·曹刿论战</span></p>
+        
+        <div class="quote">&#10077;</div>
+        <p class="content">夫战，勇气也。一鼓作气，再而衰，三而竭。</p>
+        <div class="close quote">&#10077;</div>
+      </div>
+      <div class="basic">
+        <div class="avatar"></div>
+        <div class="info">
+          <h2 class="name">DukeLuo</h2>
+          <h3 class="location">Wuhan</h3>
+        </div>
+      </div>
+      <div class="links">
+        
+          <a id="github-link" class="profile-link" target="_blank" rel="noopener" href="https://github.com/DukeLuo" title="GitHub"></a>
+        
+        
+          <a id="email-link" class="profile-link" href="mailto:dukeluo@outlook.com" title="邮箱"></a>
+        
+        
+          <a id="rss-link" class="profile-link" href="/atom.xml" title="RSS"></a>
+        
+      </div>
+    </div>
+    
+      <div class="holder">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+      </div>
+    
+  </div>
+</div>
+
+</aside>
+
+  </section>
+</div>
+
+
+      <footer id="footer">
+  <p>Copyright &copy; 2022 晒网</p>
+  <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> • Theme <a
+                href="https://github.com/DukeLuo/hexo-theme-candelas" target="_blank">Candelas</a></p>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archive</a>
+  
+</nav>
+
+  </div>
+</body>
+</html>

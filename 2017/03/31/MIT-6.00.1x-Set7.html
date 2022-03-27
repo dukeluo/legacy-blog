@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="My personal solution to the problem set 7.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MIT 6.00.1x  计算机科学和Python编程导论  Set 7">
+<meta property="og:url" content="https://dukeluo.github.io/2017/03/31/MIT-6.00.1x-Set7.html">
+<meta property="og:site_name" content="晒网">
+<meta property="og:description" content="My personal solution to the problem set 7.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xuetangx.com/asset-v1:MITx+6_00_1x+sp+type@asset+block/files_ps06_files_trigger_inheritance_large.png">
+<meta property="article:published_time" content="2017-03-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-26T15:11:32.114Z">
+<meta property="article:author" content="Duke Luo">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xuetangx.com/asset-v1:MITx+6_00_1x+sp+type@asset+block/files_ps06_files_trigger_inheritance_large.png">
+  <title>MIT 6.00.1x  计算机科学和Python编程导论  Set 7 | 晒网</title>
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS&#x2F;woiFS3uNKo8eIuni59rjyNGtXfstRzStA&#x3D;" crossorigin="anonymous">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo&#x3D;" defer crossorigin="anonymous"></script>
+
+  
+  
+    
+<script src="/js/toc.js" defer></script>
+
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js" defer></script>
+
+    
+<script src="/js/fingerprint.js" defer></script>
+
+    
+<script src="/js/gist.js" defer></script>
+
+    
+<script src="/js/like.js" defer type="module"></script>
+
+  
+  
+<script src="/js/script.js" defer></script>
+
+  
+<script src="/js/search.js" defer></script>
+
+  
+<script src="/js/chocolate.js" defer></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP&#x2F;HTHLT7097U8Y5b8&#x3D;" crossorigin="anonymous" defer></script>
+
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="晒网" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header" class="post-header">
+    <div id="header-inner">
+        <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+                <a class="main-nav-link" href="/">Home</a>
+            
+                <a class="main-nav-link" href="/categories">Category</a>
+            
+                <a class="main-nav-link" href="/archives">Archive</a>
+            
+        </nav>
+        <nav id="sub-nav">
+            <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        </nav>
+        <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dukeluo.github.io"></form>
+        </div>
+    </div>
+</header>
+
+      <div class="post-outer" data-post-title="MIT 6.00.1x  计算机科学和Python编程导论  Set 7" id="post">
+  <section class="post-toc">
+    <aside class="post-fixed-container">
+  <div class="toc-wrap">
+  <h3 class="toc-title">目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-I-Data-Structure-Design"><span class="toc-text">Part I: Data Structure Design</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Generalizing-the-Problem-%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%80%E8%88%AC%E5%8C%96"><span class="toc-text">Generalizing the Problem 问题的一般化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-1"><span class="toc-text">Problem 1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-II-Word-Triggers"><span class="toc-text">Part II: Word Triggers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Trigger-interface-%E8%A7%A6%E5%8F%91%E5%99%A8%E7%95%8C%E9%9D%A2"><span class="toc-text">Trigger interface 触发器界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Whole-Word-Triggers-%E5%AE%8C%E6%95%B4%E5%8D%95%E8%AF%8D%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-text">Whole Word Triggers 完整单词触发器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-2"><span class="toc-text">Problem 2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-3"><span class="toc-text">Problem 3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-4"><span class="toc-text">Problem 4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-5"><span class="toc-text">Problem 5</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-II-Composite-Triggers"><span class="toc-text">Part II: Composite Triggers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Composite-Triggers-%E5%A4%8D%E5%90%88%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-text">Composite Triggers 复合触发器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-6"><span class="toc-text">Problem 6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-7"><span class="toc-text">Problem 7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-8"><span class="toc-text">Problem 8</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-II-Phrase-Triggers"><span class="toc-text">Part II: Phrase Triggers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Phrase-Triggers-%E7%9F%AD%E8%AF%AD%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-text">Phrase Triggers 短语触发器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-9"><span class="toc-text">Problem 9</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-III-Filtering-%E8%BF%87%E6%BB%A4"><span class="toc-text">Part III: Filtering 过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-10"><span class="toc-text">Problem 10</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-IV-User-Specified-Triggers-%E7%94%A8%E6%88%B7%E6%8C%87%E5%AE%9A%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-text">Part IV: User-Specified Triggers 用户指定触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-11"><span class="toc-text">Problem 11</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E8%AF%9D%E8%AF%B4"><span class="toc-text">有话说</span></a></li></ol>
+</div>
+
+  
+    <div id="post-like" data-token="MTBiZjhlNDE3YjA3Y2VmMWFmZmZhMTAxYzMzNzM3Mjk3MjRjYzViNQ==">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+</div>
+
+  
+</aside>
+
+  </section>
+  <section class="post-main">
+    <article id="post-MIT-6.00.1x-Set7" class="h-entry article article-type-post"
+  itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <p class="article-date">
+  <time class="dt-published" datetime="2017-03-30T16:00:00.000Z" itemprop="datePublished">2017-03-31</time>
+</p>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      MIT 6.00.1x  计算机科学和Python编程导论  Set 7
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Part-I-Data-Structure-Design"><a href="#Part-I-Data-Structure-Design" class="headerlink" title="Part I: Data Structure Design"></a>Part I: Data Structure Design</h3><p> 感谢 glhezjnucn 童鞋的给力翻译<br>First, let’s talk about one specific RSS feed: Google News. The URL for the Google News feed is: 首先我们讨论一个特定的RSS推送:Google新闻。链接如下<br><a target="_blank" rel="noopener" href="http://news.google.com/?output=rss">http://news.google.com/?output=rss</a></p>
+<span id="more"></span>
+
+<p>If you try to load this URL in your browser, you’ll probably see your browser’s interpretation of the XML code generated by the feed. You can view the XML source with your browser’s “View Page Source” function, though it probably will not make much sense to you. Abstractly, whenever you connect to the Google News RSS feed, you receive a list of items. Each entry in this list represents a single news item. In a Google News feed, every entry has the following fields:<br>如果你用浏览器打开这个网址，那么你的浏览器会将XML生成为页面反馈信息，你可以用查看源代码的功能看XML的源码，不过这也许没多大帮助。 简略的说，当你链接一个Google 新闻RSS推送时，你会得到一个项目列表，每个条目表示一条单一的新闻，在Google新闻条目里，含有以下信息：</p>
+<ul>
+<li>guid : A globally unique identifier for this news story. 全局唯一的新闻条目的识别号</li>
+<li>title : The news story’s headline. 新闻条目的标题</li>
+<li>subject : A subject tag for this story (e.g. ‘Top Stories’, or ‘Sports’). 新闻条目的主题(比如 ‘Top Stories’, 或 ‘Sports’).</li>
+<li>summary : A paragraph or so summarizing the news story.新闻条目的概要或段落ry.</li>
+<li>link : A link to a web-site with the entire story. 新闻条目的完整链接网址</li>
+</ul>
+<h4 id="Generalizing-the-Problem-问题的一般化"><a href="#Generalizing-the-Problem-问题的一般化" class="headerlink" title="Generalizing the Problem 问题的一般化"></a>Generalizing the Problem 问题的一般化</h4><p>This is a little trickier than we’d like it to be, because each of these RSS feeds is structured a little bit differently than the others. So, our goal in Part I is to come up with a unified, standard representation that we’ll use to store a news story.<br>比我们希望的要棘手一点，每个RSS推送器可能在信息组织格式上不太一样。因此，第一部分我们的目标是统一，标准化存储新闻条目。<br>Why do we want this? When all is said and done, we want an application that aggregates several RSS feeds from various sources and can act on all of them in the exact same way: we should be able to read news stories from various RSS feeds all in one place. If you’ve ever used an RSS feed reader, be assured that it has had to solve the exact problem we’re going to tackle in this pset!<br>为什么需要这样？当我们完成了这样的统一，我们的应用程序可以对聚集一起的多个RSS推送器看成完全是同一个。也就是我们在一个地方就可以阅读来自不同RSS推送器的新闻条目。要是你用过RSS阅读器，那就会相信它首先就要解决我们所面临的一模一样的问题。</p>
+<h4 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem 1"></a>Problem 1</h4><p>Parsing is the process of turning a data stream into a structured format that is more convenient to work with. We have provided you with code that will retrieve and parse the Google and Yahoo news feeds. 分列（parse语句）是处理数据流使之成为结构化格式，更适于工作的过程。我们已经为你提供了获取与分列Google, Yahoo新闻推送的代码。<br>Parsing all of this information from the feeds that Google/Yahoo/the New York Times/etc. gives us is no small feat. So, let’s tackle an easy part of the problem first: Pretend that someone has already done the specific parsing, and has left you with variables that contain the following information for a news story:<br>获取与分列来自Google/Yahoo/the New York Times等等的信息并非易事。因此让我们先来对付一个简单的部分问题：就像别人已经为我们做了这些提取与分列的工作，留给你的是关于新闻条目的如下信息：</p>
+<ul>
+<li>globally unique identifier (GUID) - a string that serves as a unique name for this entry 条目的唯一识别字符串</li>
+<li>title - a string 字符串</li>
+<li>subject - a string 字符串</li>
+<li>summary - a string 字符串</li>
+<li>link to more content - a string 字符串</li>
+</ul>
+<p> We want to store this information in an object that we can then pass around in the rest of our program. Your task, in this problem, is to write a class, NewsStory, starting with a constructor that takes (guid, title, subject, summary, link) as arguments and stores them appropriately. NewsStory also needs to contain the following methods:<br>我们希望用对象来存储这些信息，然后可以将它传给程序的其他地方。你的任务是写一个class, NewsStory，以(guid, title, subject, summary, link)作为参数的一个构造器，并将它们合理的存储，NewsStory也需要如下方法</p>
+<ul>
+<li> <code>getGuid(self)</code></li>
+<li> <code>getTitle(self)</code></li>
+<li> <code>getSubject(self)</code></li>
+<li> <code>getSummary(self)</code></li>
+<li> <code>getLink(self)</code></li>
+</ul>
+<p>Each method should return the appropriate element of an instance. For example, if we have implemented the class and call<br><code>test = NewsStory(&#39;foo&#39;, &#39;myTitle&#39;, &#39;mySubject&#39;, &#39;some long summary&#39;, &#39;www.example.com&#39;)</code><br>每个方法需要能返回实例的对应元素，例如，当我们实现了class定义，调用<br>then test.getGuid() will return foo.<br>The solution to this problem should be relatively short and very straightforward (please review what get methods should do if you find yourself writing multiple lines of code for each). Once you have implemented NewsStory all the NewsStory test cases should work.<br>对这个问题的解答应该是相对简短而非常直接的。当你实现了NewsStrory,那所有的NewssTory测试都应该通过。<br>To test your class definition, we have provided a test suite in ps7_test.py. You can test your code by loading and running this file. You should see an “OK” for the NewsStory tests if your code is correct. Because ps7.py contains code to run the full RSS scraping system, we suggest you do not try to run ps7.py directly to test your implementation. Instead, in IDLE, you can do the following:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> ps7 <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test = ps7.NewsStory(<span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;myTitle&#x27;</span>, <span class="string">&#x27;mySubject&#x27;</span>, <span class="string">&#x27;some long summary&#x27;</span>, <span class="string">&#x27;www.example.com&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>to load in then run your own tests on your class definitions.<br>为测试你的class定义，我们在ps7_test.py中提供了测试集。你可以装入运行那个程序来测试你的代码。如果你的代码正确，应该看到NewssTory测试OK这样的信息，我们提议你不直接运行ps7.py来测试你的实现。而是，在IDLE环境用下列代码来测试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter your code for NewsStory in this box</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsStory</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,guid,title,subject,summary,link</span>):</span></span><br><span class="line">        self.guid = guid</span><br><span class="line">        self.title = title</span><br><span class="line">        self.subject = subject</span><br><span class="line">        self.summary = summary</span><br><span class="line">        self.link = link</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getGuid</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.guid</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getTitle</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.title</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getSubject</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.subject</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getSummary</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.summary</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getLink</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.link</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Part-II-Word-Triggers"><a href="#Part-II-Word-Triggers" class="headerlink" title="Part II: Word Triggers"></a>Part II: Word Triggers</h3><p>Given a set of news stories, your program will generate alerts for a subset of those stories. Stories with alerts will be displayed to the user, and the other stories will be silently discarded. We will represent alerting rules as triggers. A trigger is a rule that is evaluated over a single news story and may fire to generate an alert. For example, a simple trigger could fire for every news story whose title contained the word “Microsoft”. Another trigger may be set up to fire for all news stories where the summary contained the word “Boston”. Finally, a more specific trigger could be set up to fire only when a news story contained both the words “Microsoft” and “Boston” in the summary.<br>给定一组新闻条目，你的程序需要为一个子集生成通知（alerts）,附带alert的条目将显示给用户，而其他就无声地丢弃。 我们将用触发器来表示通知规则。一个触发器是用于评估单一的新闻条目是否需要被通知的规则。比如，一个简单的触发器可能是触发所有在title中含有单词”Microsoft”的新闻条目，另一个触发器可能是触发在summary中含有单词”Boston”的新闻条目。而进一步的特定触发器可能触发在summary中同时含有这两个单词的。<br>In order to simplify our code, we will use object polymorphism. We will define a trigger interface and then implement a number of different classes that implement that trigger interface in different ways.<br>为了简化我们的代码，我们采用对象的多态性，我们定义一个触发器界面，然后定义一系列不同的类来以不同的形式实现触发器界面。</p>
+<h4 id="Trigger-interface-触发器界面"><a href="#Trigger-interface-触发器界面" class="headerlink" title="Trigger interface 触发器界面"></a>Trigger interface 触发器界面</h4><p>Each trigger class you define should implement the following interface, either directly or transitively. It must implement the evaluate method that takes a news item (NewsStory object) as an input and returns True if an alert should be generated for that item. We will not directly use the implementation of the Trigger class, which is why it throws an exception should anyone attempt to use it<br>你定义的每个触发器类应该直接或间接地实现如下界面。它必须实现evaluate方法，接收新闻条目输入(NewsStory类)，如果该条目需要通知就返回True.我们不直接用Trigger类里定义的evaluate,这就是为什么那里写了如果被引用的话就产生一个exception出错。<br>The class below implements the Trigger interface (you will not modify this). Any subclass that inherits from it will have an evaluate method. By default, they will use the evaluate method in Trigger, the superclass, unless they define their own evaluate function, which would then be used instead. If some subclass neglects to define its own evaluate() method, calls to it will go to Trigger.evaluate(), which fails (albeit cleanly) with the NotImplementedError exception:<br>下面的类定义实现触发器界面(你不要修改它).每个继承它的子类都需要有一个evaluate 方法. 缺省地，子类会引用Trigger类的evaluate方法，除非它定义了自己的evaluate,那么它将取代继承来的方法. 如果一些子类忽略了定义自己的evaluate()方法,那么对它的调用将转向Trigger.evaluate(), 这会失败 ，产生一个NotImplementedError例外:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trigger</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self, story</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Returns True if an alert should be generated</span></span><br><span class="line"><span class="string">        for the given news item, or False otherwise.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br></pre></td></tr></table></figure>
+<p>We will define a number of classes that inherit from Trigger. In the figure below, Trigger is a superclass, which all other classes inherit from. The arrow from WordTrigger to Trigger means that WordTrigger inherits from Trigger - a WordTrigger is a Trigger . Note that other classes inherit from WordTrigger.<br>我们将从Trigger类继承来定义一系列的子类。如下图所示（图请见原文），Trigger是超类，所有其他类继承它，WordTrigger继承Trigger,其他类又继承WordTrigger. （Trigger结构图略）<br><img src="http://www.xuetangx.com/asset-v1:MITx+6_00_1x+sp+type@asset+block/files_ps06_files_trigger_inheritance_large.png"></p>
+<h4 id="Whole-Word-Triggers-完整单词触发器"><a href="#Whole-Word-Triggers-完整单词触发器" class="headerlink" title="Whole Word Triggers 完整单词触发器"></a>Whole Word Triggers 完整单词触发器</h4><p>Having a trigger that always fires isn’t interesting; let’s write some that are. A user may want to be alerted about news items that contain specific words. For instance, a simple trigger could fire for every news item whose title contains the word “Microsoft”. In the following problems, you will create a WordTrigger abstract class and implement three classes that inherit from this class.<br>我们对一个一直激发的触发器可能不感兴趣，我们要写一些有用的。用户可能对包含特定单词的新闻感兴趣，希望被通知。比如，一个简单的触发器可能是触发所有在title中含有单词”Microsoft”的新闻条目。在下面的问题，我们建立一个抽象类WordTrigger,然后继承它设计3个子类。<br>The trigger should fire when the whole word is present. For example, a trigger for “soft” should fire on: 当完整单词出现的时候，触发器应该被触发（激活），例如对单词”soft”的触发器应该就下列情形激活（激发）</p>
+<ul>
+<li>Koala bears are soft and cuddly.</li>
+<li>I prefer pillows that are soft.</li>
+<li>Soft drinks are great.</li>
+<li>Soft’s the new pink!</li>
+<li>“Soft!” he exclaimed as he threw the football.</li>
+</ul>
+<p>But should not fire on: 但下列情形却不被激活（激发） </p>
+<ul>
+<li>Microsoft recently released the Windows 8 Consumer Preview.</li>
+<li>Downey makes my clothes the softest they can be!</li>
+</ul>
+<p>This is a little tricky, especially the case with the apostrophe. For the purpose of your parsing, pretend that a space or any character in string.punctuation is a word separator. If you’ve never seen string.punctuation before, go to your interpreter and type: 这稍微有点棘手，尤其是有撇号的时候。在你分列词句时，可以认为空格或string.punctuation中的字符都是单词的分隔符。如果你从未看过string.punctuation，到解释器输入下面代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> string</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> string.punctuation</span><br></pre></td></tr></table></figure>
+<p>Play around with this a bit to get comfortable with what it is.对它进行操作以便熟悉它，在这一部分，字符串的split与replace方法将有助于你解决问题。 同样你也可能用到lower或upper方法 The split and replace methods of strings will almost certainly be helpful as you tackle this part.<br>You may also find the string methods lower and/or upper useful for this problem.</p>
+<h4 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem 2"></a>Problem 2</h4><p>Implement a word trigger abstract class, WordTrigger. It should take in a string word as an argument to the class’s constructor.<br>设计单词触发器抽象类WordTrigger.<br>WordTrigger should be a subclass of Trigger. It has one new method, isWordIn, which takes in one string argument text. It returns True if the whole word word is present in text, False otherwise, as described in the above examples. This method should not be case-sensitive. Implement this method.<br>作为类构造的参数它接受一个单词字符串。 WordTrigger 必须是Trigger的子类. 它有一个新的方法isWordIn,它接收一个字符串参数text. 如果整个word含在text中返回True,否则返回False.这个方法不能对大小写敏感，实现它。<br>Because this is an abstract class, we will not be directly instantiating any WordTriggers. WordTrigger should inherit its evaluate method from Trigger. We do this because now we can create subclasses of WordTrigger that use its isWordIn method. In this way, it is much like the Trigger interface, except now actual code from this WordTrigger class is used in its subclasses.<br>因为它是一个抽象类，我们不直接实例化WordTrigger. WordTrigger需从Trigger继承evaluate方法。我们这么做是为了进一步定义WordTrigger的子类，而这些子类将继承它的isWordIn方法。因此它更像Trigger界面，只不过它的实际代码是在它的子类里调用。</p>
+<h4 id="Problem-3"><a href="#Problem-3" class="headerlink" title="Problem 3"></a>Problem 3</h4><p>You are now ready to implement WordTrigger’s three subclasses: TitleTrigger, SubjectTrigger, and SummaryTrigger.<br>现在你可以开始设计WordTrigger的三个子类了: TitleTrigger, SubjectTrigger, 以及 SummaryTrigger.<br>Implement a word trigger class, TitleTrigger, that fires when a news item’s title contains a given word. The word should be an argument to the class’s constructor. This trigger should not be case-sensitive (it should treat “Intel” and “intel” as being equal).<br>设计单词触发器类TitleTrigger, 它激发新闻 title 中含有特定单词.单词作为类构造的参数，这个触发器也不分大小写(它对”Intel” 与”intel” 视为相等).<br>For example, an instance of this type of trigger could be used to generate an alert whenever the word “Intel” occurred in the title of a news item. Another instance could generate an alert whenever the word “Microsoft” occurred in the title of an item.<br>比如这个触发器类的一个实例可以激发title中含有单词”Intel”的新闻，而另一个实例可以激发title中含有”Microsoft”的新闻。<br>Think carefully about what methods should be defined in TitleTrigger and what methods should be inherited from the superclass. This class can be implemented in as few as 3 lines code!<br>考虑仔细，在TitleTrigger中该定义什么方法，又什么方法继承自它的超类。这个类的定义只须少于3行的代码来做。</p>
+<h4 id="Problem-4"><a href="#Problem-4" class="headerlink" title="Problem 4"></a>Problem 4</h4><p>Implement a word trigger class, SubjectTrigger, that fires when a news item’s subject contains a given word. The word should be an argument to the class’s constructor. This trigger should not be case-sensitive.<br>设计单词触发器类SubjectTrigger, 它激发新闻 subject 中含有特定单词.单词作为类构造的参数，这个触发器也不分大小写.</p>
+<h4 id="Problem-5"><a href="#Problem-5" class="headerlink" title="Problem 5"></a>Problem 5</h4><p>Implement a word trigger class, SummaryTrigger, that fires when a news item’s summary contains a given word. The word should be an argument to the class’s constructor. This trigger should not be case-sensitive.<br>设计单词触发器类SummaryTrigger, 它激发新闻 summary 中含有特定单词.单词作为类构造的参数，这个触发器也不分大小写.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter your code for WordTrigger, TitleTrigger, </span></span><br><span class="line"><span class="comment"># SubjectTrigger, and SummaryTrigger in this box</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        self.word = word</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWordIn</span>(<span class="params">self,text</span>):</span></span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> text:</span><br><span class="line">            <span class="keyword">if</span> letter <span class="keyword">in</span> string.punctuation:</span><br><span class="line">                text = text.replace(letter,<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        wordList = string.lower(text).split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> string.lower(self.word) <span class="keyword">in</span> wordList</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TitleTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getTitle())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubjectTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getSubject())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SummaryTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getSummary())</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Part-II-Composite-Triggers"><a href="#Part-II-Composite-Triggers" class="headerlink" title="Part II: Composite Triggers"></a>Part II: Composite Triggers</h3><h4 id="Composite-Triggers-复合触发器"><a href="#Composite-Triggers-复合触发器" class="headerlink" title="Composite Triggers 复合触发器"></a>Composite Triggers 复合触发器</h4><p>So the triggers from the previous page are mildly interesting, but we want to do better: we want to ‘compose’ the earlier triggers, to set up more powerful alert rules. For instance, we may want to raise an alert only when both “google” and “stock” were present in the news item (an idea we can’t express right now).<br>前面的触发器已经有点意思了，不过我们可以做得更好：我们将复合以前的触发器，来建立更为强大的通知准则。比如我们希望当新闻条目中同时含有”google” 和 “stock”时获得通知提醒（这一点我们现在还无法表达）。<br>Note that these triggers are not word triggers and should not be subclasses of WordTrigger.<br>注意这类触发器并非单词触发器，因此它不是WordTrigger的子类。</p>
+<h4 id="Problem-6"><a href="#Problem-6" class="headerlink" title="Problem 6"></a>Problem 6</h4><p>Implement a NOT trigger (NotTrigger). 设计NotTrigger<br>This trigger should produce its output by inverting the output of another trigger. The NOT trigger should take this other trigger as an argument to its constructor. (Why its constructor? Because we can’t change what parameters evaluate takes in… that’d break our polymorphism). So, given a trigger T and a news item x, the output of the NOT trigger’s evaluate method should be equivalent to not T.evaluate(x).<br>这个触发器需要将别的触发器进行翻转输出。输入一个触发器对象作为参数，因此给定trigger T,新闻x,它的输出等效于 not T.evaluate(x).</p>
+<h4 id="Problem-7"><a href="#Problem-7" class="headerlink" title="Problem 7"></a>Problem 7</h4><p>Implement an AND trigger (AndTrigger).设计AndTrigger<br>This trigger should take two triggers as arguments to its constructor, and should fire on a news story only if both of the inputted triggers would fire on that item.</p>
+<h4 id="Problem-8"><a href="#Problem-8" class="headerlink" title="Problem 8"></a>Problem 8</h4><p>Implement an OR trigger (OrTrigger).<br>This trigger should take two triggers as arguments to its constructor, and should fire if either one (or both) of its inputted triggers would fire on that item.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter your code for WordTrigger, TitleTrigger,</span></span><br><span class="line"><span class="comment"># NotTrigger, AndTrigger, and OrTrigger in this box</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        self.word = word</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWordIn</span>(<span class="params">self,text</span>):</span></span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> text:</span><br><span class="line">            <span class="keyword">if</span> letter <span class="keyword">in</span> string.punctuation:</span><br><span class="line">                text = text.replace(letter,<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        wordList = string.lower(text).split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> string.lower(self.word) <span class="keyword">in</span> wordList</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TitleTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getTitle())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NotTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,trigger</span>):</span></span><br><span class="line">        self.trigger = trigger</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">not</span> self.trigger.evaluate(story)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AndTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,trigger1,trigger2</span>):</span></span><br><span class="line">        self.trigger1 = trigger1</span><br><span class="line">        self.trigger2 = trigger2</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.trigger1.evaluate(story) <span class="keyword">and</span> self.trigger2.evaluate(story)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,trigger1,trigger2</span>):</span></span><br><span class="line">        self.trigger1 = trigger1</span><br><span class="line">        self.trigger2 = trigger2</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.trigger1.evaluate(story) <span class="keyword">or</span> self.trigger2.evaluate(story)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Part-II-Phrase-Triggers"><a href="#Part-II-Phrase-Triggers" class="headerlink" title="Part II: Phrase Triggers"></a>Part II: Phrase Triggers</h3><h4 id="Phrase-Triggers-短语触发器"><a href="#Phrase-Triggers-短语触发器" class="headerlink" title="Phrase Triggers 短语触发器"></a>Phrase Triggers 短语触发器</h4><p>At this point, you have no way of writing a trigger that matches on “New York City” – the only triggers you know how to write would be a trigger that would fire on “New” AND “York” AND “City” – which also fires on the phrase “New students at York University love the city”. It’s time to fix this. Since here you’re asking for an exact match, we will require that the cases match, but we’ll be a little more flexible on word matching. So, “New York City” will match:<br>现在我们还没有办法写一个触发器来匹配查找短语 “New York City” – 你能写的触发器可能会是”New” ， “York” ， “City”作为单词触发器复合 – 但这样就会触发短语 “New students at York University love the city”. 这需要修正，因为我们需要你精确匹配，我们也需要区分大小，但在单词匹配上有一点灵活性 因此, “New York City” 能匹配如下:</p>
+<ul>
+<li>New York City sees movie premiere</li>
+<li>In the heart of New York City’s famous cafe</li>
+<li>New York Cityrandomtexttoproveapointhere</li>
+</ul>
+<p>but will not match: 但不匹配下面的</p>
+<ul>
+<li>I love new york city</li>
+<li>I love    New                 York                  City!!!!!!!!!!!!!!</li>
+</ul>
+<h4 id="Problem-9"><a href="#Problem-9" class="headerlink" title="Problem 9"></a>Problem 9</h4><p>Implement a phrase trigger (PhraseTrigger) that fires when a given phrase is in any of the story’s subject, title, or summary. The phrase should be an argument to the class’s constructor. You may find the Python operator in helpful, as in:<br>设计短语触发器(PhraseTrigger)，当 新闻条目的subject, title, or summary 中任意一个含有该短语就会激发。短语需是类构建器的参数，你会发现Python的一下操作运算是有用的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> <span class="string">&quot;New York City&quot;</span> <span class="keyword">in</span> <span class="string">&quot;In the heart of New York City&#x27;s famous cafe&quot;</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> <span class="string">&quot;New York City&quot;</span> <span class="keyword">in</span> <span class="string">&quot;I love new york city&quot;</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter your code for WordTrigger, TitleTrigger,</span></span><br><span class="line"><span class="comment"># SubjectTrigger, SummaryTrigger, and PhraseTrigger in this box</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        self.word = word</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWordIn</span>(<span class="params">self,text</span>):</span></span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> text:</span><br><span class="line">            <span class="keyword">if</span> letter <span class="keyword">in</span> string.punctuation:</span><br><span class="line">                text = text.replace(letter,<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        wordList = string.lower(text).split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> string.lower(self.word) <span class="keyword">in</span> wordList</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TitleTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getTitle())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubjectTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getSubject())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SummaryTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getSummary())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhraseTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,phrase</span>):</span></span><br><span class="line">        self.phrase = phrase</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.phrase <span class="keyword">in</span> story.getTitle() <span class="keyword">or</span> self.phrase <span class="keyword">in</span> story.getSubject() <span class="keyword">or</span> self.phrase <span class="keyword">in</span> story.getSummary()</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Part-III-Filtering-过滤"><a href="#Part-III-Filtering-过滤" class="headerlink" title="Part III: Filtering 过滤"></a>Part III: Filtering 过滤</h3><p>At this point, you can run ps7.py, and it will fetch and display Google and Yahoo news items for you in little pop-up windows. How many news items? All of them.现在你运行ps7.py,它会获取并以弹出窗口显示来自Google / Yahoo 的新闻条目，有多少呢？<br>Right now, the code we’ve given you in ps7.py gets all of the feeds every minute, and displays the result. This is nice, but, remember, the goal here was to filter out only the the stories we wanted.<br>所有. 现在, 我们在 ps7.py的代码每隔一分钟去提取显示一次，这挺不错，但记住，我们这里的目标是要设计一些过滤。</p>
+<h4 id="Problem-10"><a href="#Problem-10" class="headerlink" title="Problem 10"></a>Problem 10</h4><p>Write a function, filterStories(stories, triggerlist) that takes in a list of news stories and a list of triggers, and returns a list of only the stories for which any of the triggers fires on. The list of stories should be unique - that is, do not include any duplicates in the list. For example, if 2 triggers fire on StoryA, only include StoryA in the list one time.<br>After completing Problem 10, run the file ps7_test.py. All the tests should now pass.<br>编写函数filterStories(stories, triggerlist)，以参数输入新闻列表与触发器列表，返回任何触发器为True的新闻子集，新闻子集不该含有重复的条目。也就是说如果有2个触发器同时触发新闻StoryA,返回中指含一次StoryA 完成了Problem 10, 运行文件 ps7_test.py，应该通过全部测试.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter your code for WordTrigger, TitleTrigger,</span></span><br><span class="line"><span class="comment"># SubjectTrigger, SummaryTrigger, PhraseTrigger, and </span></span><br><span class="line"><span class="comment"># filterStories in this box</span></span><br><span class="line"><span class="comment"># Enter your code for WordTrigger, TitleTrigger,</span></span><br><span class="line"><span class="comment"># SubjectTrigger, SummaryTrigger, PhraseTrigger, and </span></span><br><span class="line"><span class="comment"># filterStories in this box</span></span><br><span class="line"><span class="comment"># Enter your code for WordTrigger, TitleTrigger,</span></span><br><span class="line"><span class="comment"># SubjectTrigger, SummaryTrigger, PhraseTrigger, and </span></span><br><span class="line"><span class="comment"># filterStories in this box</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        self.word = word</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWordIn</span>(<span class="params">self,text</span>):</span></span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> text:</span><br><span class="line">            <span class="keyword">if</span> letter <span class="keyword">in</span> string.punctuation:</span><br><span class="line">                text = text.replace(letter,<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        wordList = string.lower(text).split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> string.lower(self.word) <span class="keyword">in</span> wordList</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TitleTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getTitle())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubjectTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getSubject())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SummaryTrigger</span>(<span class="params">WordTrigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,word</span>):</span></span><br><span class="line">        WordTrigger.__init__(self,word)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.isWordIn(story.getSummary())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhraseTrigger</span>(<span class="params">Trigger</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,phrase</span>):</span></span><br><span class="line">        self.phrase = phrase</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evaluate</span>(<span class="params">self,story</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.phrase <span class="keyword">in</span> story.getTitle() <span class="keyword">or</span> self.phrase <span class="keyword">in</span> story.getSubject() <span class="keyword">or</span> self.phrase <span class="keyword">in</span> story.getSummary()</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filterStories</span>(<span class="params">stories, triggerlist</span>):</span></span><br><span class="line">    storyTriggerList=[]</span><br><span class="line">    <span class="keyword">for</span> story <span class="keyword">in</span> stories:</span><br><span class="line">        <span class="keyword">for</span> trigger <span class="keyword">in</span> triggerlist:</span><br><span class="line">            <span class="keyword">if</span> trigger.evaluate(story):</span><br><span class="line">                storyTriggerList.append(story)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> storyTriggerList       </span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Part-IV-User-Specified-Triggers-用户指定触发器"><a href="#Part-IV-User-Specified-Triggers-用户指定触发器" class="headerlink" title="Part IV: User-Specified Triggers 用户指定触发器"></a>Part IV: User-Specified Triggers 用户指定触发器</h3><p>Right now, your triggers are specified in your Python code, and to change them, you have to edit your program. This is very user-unfriendly. (Imagine if you had to edit the source code of your web browser every time you wanted to add a bookmark!) 至此，你的触发器是指定在Python代码中的，要改变它们，你需要修改代码，这是非常用户-不友好的(谁想一下如果你想加个书签的话要更改浏览器代码)<br>Instead, we want you to read your trigger configuration from a triggers.txt file every time your application starts, and use the triggers specified there.我们希望运行应用程序时读入触发器配置文件triggers.txt,用那里指定的触发器。<br>Consider the following example trigger configuration file:<br>考虑如下的触发器配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> # subject trigger named t1</span><br><span class="line">t1 SUBJECT world</span><br><span class="line"></span><br><span class="line"># title trigger named t2</span><br><span class="line">t2 TITLE Intel</span><br><span class="line"></span><br><span class="line"># phrase trigger named t3</span><br><span class="line">t3 PHRASE New York City</span><br><span class="line"></span><br><span class="line"># composite trigger named t4</span><br><span class="line">t4 AND t2 t3</span><br><span class="line"></span><br><span class="line"># the trigger set contains t1 and</span><br><span class="line">t4</span><br><span class="line">ADD t1 t4</span><br></pre></td></tr></table></figure>
+<p>The example file specifies that four triggers should be created, and that two of those triggers should be added to the trigger list:<br>例子指定生成4个触发器，其中的两个加载到触发器列表</p>
+<ul>
+<li>A trigger that fires when a subject contains the word ‘world’ (t1).</li>
+<li>A trigger that fires when the title contains the word ‘Intel’ and the news item contains the phrase ‘New York City’ somewhere (t4).</li>
+</ul>
+<p>The two other triggers (t2 and t3) are created but not added to the trigger set directly. They are used as arguments for the composite AND trigger’s definition (t4).<br>另两个trigger (t2 and t3)建立起来但不直接加到触发器集合<br>Each line in this file does one of the following:</p>
+<ul>
+<li>is blank</li>
+<li>is a comment (begins with a #)</li>
+<li>defines a named trigger</li>
+<li>adds triggers to the trigger list. 将触发器加到触发器列表</li>
+</ul>
+<p>Each type of line is described below. 每个行的类型描述如下</p>
+<ul>
+<li>Blank: blank lines are ignored. A line that consists only of whitespace is a blank line. 可以忽略</li>
+<li>Comments: Any line that begins with a # character is ignored.</li>
+<li>Trigger definitions: Lines that do not begin with the keyword ADD define named triggers. The first element in a trigger definition is the name of the trigger. The name can be any combination of letters without spaces, except for “ADD”. The second element of a trigger definition is a keyword (e.g., TITLE, PHRASE, etc.) that specifies the kind of trigger being defined. The remaining elements of the definition are the trigger arguments. What arguments are required depends on the trigger type:<br>不以关键词ADD开头的行用来定义一个触发器，第一个成分表示触发器的名称，名称定义是字母的组合（但不能用ADD）。第二成分是描述触发器类型的关键词（TITLE, PHRASE等），余下的是触发器需要的参数.需要什么样的参数取决于触发器的类型:</li>
+<li>TITLE : a single word.单一单词.</li>
+<li>SUBJECT : a single word.单一单词.</li>
+<li>SUMMARY : a single word.单一单词.</li>
+<li>NOT : the name of the trigger that will be NOT’d.触发器名称</li>
+<li>AND : the names of the two other triggers that will be AND’d.两个触发器名称</li>
+<li>OR : the names of the two other triggers that will be OR’d.t两个触发器名称.</li>
+<li>PHRASE : a phrase.一个短语.</li>
+<li>Trigger addition: A trigger definition should create a trigger and associate it with a name but should not automatically add that trigger to the running trigger list. One or more ADD lines in the .txt file will specify which triggers should be in the trigger list. An addition line begins with the ADD keyword. Following ADD are the names of one or more previously defined triggers. These triggers will be added to the the trigger list.<br>触发器的定义只是定义一个trigger并给它一个名称，并不直接加入到运行时的触发器列表。一个或多个ADD行才指定将什么trigger添加到运行时触发器列表。跟在ADD后面的是一个或多个前面已定义好的触发器，这些将加入到触发器列表。<h4 id="Problem-11"><a href="#Problem-11" class="headerlink" title="Problem 11"></a>Problem 11</h4>We have implemented the function readTriggerConfig(filename) for you. We’ve written code to open the file and throw away all the lines that don’t begin with instructions (e.g. comments and blank spaces), and then reads in the code that defines triggers and instantiates the triggers by making a call to the helper function makeTrigger. The function readTriggerConfig then returns a list of triggers specified in the configuration file.<br>我们为你写了函数readTriggerConfig(filename)。函数代码会打开trigger.txt文件并丢弃非指令的行，读入指令行并调用makeTrigger函数定义trigger以及trigger实例。<br>First, read through the definition of readTriggerConfig. You should be able to understand everything this function is doing at this point in the course. 首先通读readTriggerConfig函数的定义，在此你应该能完全理解函数的行为。<br>Next, implement the function makeTrigger(triggerMap, triggerType, params, name). This helper function should build and return a trigger depending on its type. It also keeps track of triggers and names in a map. We have defined for you the specifications for this function to make it easier for you to write. Be sure you understand how readTriggerConfig is using this function; that will make implementation easier.<br>然后实现函数makeTrigger(triggerMap, triggerType, params, name)，这个函数实现按trigger的类型(译注：以前定义过的trigger类型)构建并返回一个trigger。而且它会在map中保持对trigger的跟踪(译注：也就是说构建新的trigger后需要将它刷新到trigger词典对照变量)。我们已经为你提供了一些特别指定，让你更容易的写出代码</li>
+</ul>
+<p>After completing Problem 11, you can try running ps7.py, and depending on how your triggers.txt file is defined, various RSS news items should pop up for easy reading. The code runs an infinite loop, checking the RSS feed for new stories every 60 seconds.完成了问题11，你可以试着运行ps7.py,它将取决于你的trigger.txt配置文件，不同的RSS新闻条目会以便于阅读的方式被推送出来。代码是无限循环的，每隔60秒检测一次RSS新闻条目。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter your code for makeTrigger in this box</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeTrigger</span>(<span class="params">triggerMap, triggerType, params, name</span>):</span></span><br><span class="line">    trigger = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> triggerType == <span class="string">&#x27;TITLE&#x27;</span>:</span><br><span class="line">        trigger = TitleTrigger(params[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">elif</span> triggerType == <span class="string">&#x27;SUBJECT&#x27;</span>:</span><br><span class="line">        trigger = SubjectTrigger(params[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">elif</span> triggerType == <span class="string">&#x27;SUMMARY&#x27;</span>:</span><br><span class="line">        trigger = SummaryTrigger(params[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">elif</span> triggerType == <span class="string">&#x27;NOT&#x27;</span>:</span><br><span class="line">        t1 = triggerMap.get(params[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> t1 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            trigger = NotTrigger(t1)</span><br><span class="line">    <span class="keyword">elif</span> triggerType == <span class="string">&#x27;AND&#x27;</span>:</span><br><span class="line">        t1 = triggerMap.get(params[<span class="number">0</span>])</span><br><span class="line">        t2 = triggerMap.get(params[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">if</span> t1 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> t2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            trigger = AndTrigger(t1,t2)</span><br><span class="line">    <span class="keyword">elif</span> triggerType == <span class="string">&#x27;OR&#x27;</span>:</span><br><span class="line">        t1 = triggerMap.get(params[<span class="number">0</span>])</span><br><span class="line">        t2 = triggerMap.get(params[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">if</span> t1 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> t2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            trigger = OrTrigger(t1,t2)</span><br><span class="line">    <span class="keyword">elif</span> triggerType == <span class="string">&#x27;PHRASE&#x27;</span>:</span><br><span class="line">        trigger = PhraseTrigger(string.join(params,<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">    <span class="keyword">if</span> trigger <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> name <span class="keyword">not</span> <span class="keyword">in</span> triggerMap.keys():</span><br><span class="line">        triggerMap[name] = trigger</span><br><span class="line">    <span class="keyword">return</span> trigger</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="有话说"><a href="#有话说" class="headerlink" title="有话说"></a>有话说</h3><p><strong>我本可以…</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="copyright">
+  <p><a href="https://dukeluo.github.io/2017/03/31/MIT-6.00.1x-Set7.html">https://dukeluo.github.io/2017/03/31/MIT-6.00.1x-Set7.html</a></p>
+  <p>本作品采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可</p>
+</div>
+
+      
+      
+  <div id="article-tag">
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  </div>
+
+
+      
+        <div class="article-share-links">
+  <a href="https://twitter.com/intent/tweet?text=MIT%206.00.1x%20%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%92%8CPython%E7%BC%96%E7%A8%8B%E5%AF%BC%E8%AE%BA%20%20Set%207&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F31%2FMIT-6.00.1x-Set7.html"
+    class="article-share-twitter" target="_blank" title="Twitter"></a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F31%2FMIT-6.00.1x-Set7.html"
+    class="article-share-facebook" target="_blank" title="Facebook"></a>
+  ​<a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F31%2FMIT-6.00.1x-Set7.html"
+    class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+  ​<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F03%2F31%2FMIT-6.00.1x-Set7.html"
+    class="article-share-linkedin" target="_blank" title="LinkedIn"></a>
+</div>
+
+      
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav">
+    
+      <a href="/2017/04/09/python-string.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">阅读下一篇</h4>
+        <div class="article-nav-title">python字符串编码</div>
+      </a>
+    
+    
+      <a href="/2017/03/24/MIT-6.00.1x-Set6-part1.html" id="article-nav-older" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">可能会喜欢</h4>
+        <div class="article-nav-title">MIT 6.00.1x  计算机科学和Python编程导论  Part1 of Set 6</div>
+      </a>
+    
+  </nav>
+
+
+  
+</article>
+
+    
+      <div class="gitalk">
+  
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js" integrity="sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;" crossorigin="anonymous"></script>
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt&#x2F;Hn&#x2F;PvYZde1iqfp8U&#x3D;" crossorigin="anonymous">
+
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    // eslint-disable-next-line no-undef
+    let gitalk = new Gitalk({
+      clientID: '2ed7f9c25568fea2ee69',
+      clientSecret: '758d4a3ec0cdddb2cc6d321de02e3f26545edb93',
+      id: window.location.pathname,
+      repo: 'DukeLuo.github.io',
+      owner: 'DukeLuo',
+      admin: 'DukeLuo',
+      distractionFreeMode: true
+    });
+
+    gitalk.render('gitalk-container');
+  </script>
+</div>
+
+    
+  </section>
+  <section class="post-sidebar">
+    <aside>
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algs4/" rel="tag">Algs4</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Candelas/" rel="tag">Candelas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Actions/" rel="tag">Github Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hook/" rel="tag">Hook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-R/" rel="tag">K&R</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SICP/" rel="tag">SICP</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/" rel="tag">Scheme</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glob/" rel="tag">glob</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html2canvas/" rel="tag">html2canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsPDF/" rel="tag">jsPDF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" rel="tag">事件对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E4%BD%8D/" rel="tag">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%AE%E5%8A%A8/" rel="tag">浮动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/" rel="tag">除草计划</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/01/16/glob-match-naming-convention.html">Using Glob Patterns to Match Common Naming Conventions</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/12/eslint-plugin-check-file.html">使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/09/docker-npm-install-error.html">docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/22/blog-clean-plan-3.html">博客除草计划（三）：Candelas 发布，使用新主题部署博客</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/19/react-useeffect.html">React useEffect 函数体和返回体的执行次数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap">
+  <h3 class="widget-title">
+    关于我
+  </h3>
+  <div class="widget">
+    <div class="profile">
+      <div class="motto">
+        
+          <p class="source"><span>左传·曹刿论战</span></p>
+        
+        <div class="quote">&#10077;</div>
+        <p class="content">夫战，勇气也。一鼓作气，再而衰，三而竭。</p>
+        <div class="close quote">&#10077;</div>
+      </div>
+      <div class="basic">
+        <div class="avatar"></div>
+        <div class="info">
+          <h2 class="name">DukeLuo</h2>
+          <h3 class="location">Wuhan</h3>
+        </div>
+      </div>
+      <div class="links">
+        
+          <a id="github-link" class="profile-link" target="_blank" rel="noopener" href="https://github.com/DukeLuo" title="GitHub"></a>
+        
+        
+          <a id="email-link" class="profile-link" href="mailto:dukeluo@outlook.com" title="邮箱"></a>
+        
+        
+          <a id="rss-link" class="profile-link" href="/atom.xml" title="RSS"></a>
+        
+      </div>
+    </div>
+    
+      <div class="holder">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+      </div>
+    
+  </div>
+</div>
+
+</aside>
+
+  </section>
+</div>
+
+
+      <footer id="footer">
+  <p>Copyright &copy; 2022 晒网</p>
+  <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> • Theme <a
+                href="https://github.com/DukeLuo/hexo-theme-candelas" target="_blank">Candelas</a></p>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archive</a>
+  
+</nav>
+
+  </div>
+</body>
+</html>
