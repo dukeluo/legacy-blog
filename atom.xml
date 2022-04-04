@@ -6,7 +6,7 @@
   <link href="https://dukeluo.github.io/atom.xml" rel="self"/>
   
   <link href="https://dukeluo.github.io/"/>
-  <updated>2022-03-26T15:00:36.801Z</updated>
+  <updated>2022-04-04T15:41:04.647Z</updated>
   <id>https://dukeluo.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ramda.js 版本 debounce 和 throttle 函数</title>
+    <link href="https://dukeluo.github.io/2022/04/04/ramda-debounce-throttle.html"/>
+    <id>https://dukeluo.github.io/2022/04/04/ramda-debounce-throttle.html</id>
+    <published>2022-04-03T16:00:00.000Z</published>
+    <updated>2022-04-04T15:41:04.647Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;debounce&lt;/code&gt; 函数和 &lt;code&gt;throttle&lt;/code&gt; 函数都是前端工具库中的常用函数，用于性能优化。大家常用的版本来自于 &lt;code&gt;lodash&lt;/code&gt;，我现在项目选用的工具库是 &lt;code&gt;Ramda.js&lt;/code&gt;，它是一个函数式编程库，并没有现成的方法。此文提供了 &lt;code&gt;Ramda.js&lt;/code&gt; 版本的 &lt;code&gt;debounce&lt;/code&gt; 和 &lt;code&gt;throttle&lt;/code&gt; React Hooks 函数，并提供了单元测试。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="ramda" scheme="https://dukeluo.github.io/tags/ramda/"/>
+    
+    <category term="React" scheme="https://dukeluo.github.io/tags/React/"/>
+    
+    <category term="Hook" scheme="https://dukeluo.github.io/tags/Hook/"/>
+    
+  </entry>
   
   <entry>
     <title>Using Glob Patterns to Match Common Naming Conventions</title>
@@ -422,29 +445,6 @@
     <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
     <category term="Hexo" scheme="https://dukeluo.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Algs4笔记（七） --- 符号表与二叉查找树</title>
-    <link href="https://dukeluo.github.io/2018/04/15/algs4-notes-7.html"/>
-    <id>https://dukeluo.github.io/2018/04/15/algs4-notes-7.html</id>
-    <published>2018-04-14T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.431Z</updated>
-    
-    
-    <summary type="html">介绍符号表与二叉查找树。</summary>
-    
-    
-    
-    <category term="算法" scheme="https://dukeluo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Notes" scheme="https://dukeluo.github.io/tags/Notes/"/>
-    
-    <category term="Algs4" scheme="https://dukeluo.github.io/tags/Algs4/"/>
-    
-    <category term="Java" scheme="https://dukeluo.github.io/tags/Java/"/>
     
   </entry>
   
