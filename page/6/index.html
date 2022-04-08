@@ -140,7 +140,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/09/09/sicp-notes-8.html">SICP笔记（八）</a>
+      <a class="p-name article-title" href="/2017/09/08/sicp-notes-8.html">SICP笔记（八）</a>
     </h1>
   
 
@@ -152,7 +152,7 @@
         <h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>前面，我们引入了赋值操作，我们有了模拟对象状态的能力，可以描述时间的流逝；同时也失去了引用透明性，在处理并发问题时，也变得更加复杂。</p>
       
         <p class="article-more-link">
-          <a href="/2017/09/09/sicp-notes-8.html#more">Read More</a>
+          <a href="/2017/09/08/sicp-notes-8.html#more">Read More</a>
         </p>
       
       
@@ -194,7 +194,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/08/19/sicp-notes-7.html">SICP笔记（七）</a>
+      <a class="p-name article-title" href="/2017/08/18/sicp-notes-7.html">SICP笔记（七）</a>
     </h1>
   
 
@@ -206,7 +206,7 @@
         <h3 id="赋值和局部状态"><a href="#赋值和局部状态" class="headerlink" title="赋值和局部状态"></a>赋值和局部状态</h3><p>现实中，我们常将世界看成聚集在一起的许多独立个体，每个个体都有自己的状态，比如你在夏日下搬砖，同时有人在宝马里吹空调，个体的状态随着时间不断改变，过去的改变会影响现在的表现，你辛辛苦苦搬了几个月砖，终于在年前开开心心地骑上小三轮回家过年。在计算机中，我们用状态变量(state variable)来记录对象的状态，系统中的独立对象通过自己的局部状态变量描述自己的状态，随着时间的流逝，对象的状态在不断改变，我们需要一种技术可以实时更新状态变量的值，这时我们就需要赋值(assignment)操作。</p>
       
         <p class="article-more-link">
-          <a href="/2017/08/19/sicp-notes-7.html#more">Read More</a>
+          <a href="/2017/08/18/sicp-notes-7.html#more">Read More</a>
         </p>
       
       
@@ -248,7 +248,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/07/27/sicp-notes-6.html">SICP笔记（六）</a>
+      <a class="p-name article-title" href="/2017/07/26/sicp-notes-6.html">SICP笔记（六）</a>
     </h1>
   
 
@@ -260,7 +260,7 @@
         <h3 id="符号数据"><a href="#符号数据" class="headerlink" title="符号数据"></a>符号数据</h3><p>编程中，我们使用言简意赅的变量名为变量命名以提高代码的可读性，此时我们处理的是变量名构成的表达式，但有时需要直接处理字符本身，将其视为数据对象，为了不引起歧义，我们便需要一种新的表示方法。在scheme中，在对象前放一个引号便表示这个对象是被引用对象，形如<code>&#39;a</code>，存在等价用法<code>quote</code>，<code>(quote a)</code>与<code>&#39;a</code>等价，后者是解释器的实际工作方式。 <strong>解释器看到的所有表达式都可以作为数据对象去操作</strong>，当解释器看到<code>&#39;(a b c)</code>，将会代换成<code>(quote (a b c))</code>。</p>
       
         <p class="article-more-link">
-          <a href="/2017/07/27/sicp-notes-6.html#more">Read More</a>
+          <a href="/2017/07/26/sicp-notes-6.html#more">Read More</a>
         </p>
       
       
@@ -302,7 +302,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/07/22/python-list-argument.html">python中列表作为参数的传递方式</a>
+      <a class="p-name article-title" href="/2017/07/21/python-list-argument.html">python中列表作为参数的传递方式</a>
     </h1>
   
 
@@ -315,7 +315,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>accumulate_n(cons_of_list,[],[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">[[<span class="number">1</span>, <span class="number">4</span>], [<span class="number">2</span>, <span class="number">5</span>], [<span class="number">3</span>, <span class="number">6</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>accumulate_n(<span class="keyword">lambda</span> x,y:x + y,<span class="number">0</span>,[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">[<span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
       
         <p class="article-more-link">
-          <a href="/2017/07/22/python-list-argument.html#more">Read More</a>
+          <a href="/2017/07/21/python-list-argument.html#more">Read More</a>
         </p>
       
       
@@ -357,7 +357,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/07/09/sicp-notes-5.html">SICP笔记（五）</a>
+      <a class="p-name article-title" href="/2017/07/08/sicp-notes-5.html">SICP笔记（五）</a>
     </h1>
   
 
@@ -371,7 +371,7 @@
 </blockquote>
       
         <p class="article-more-link">
-          <a href="/2017/07/09/sicp-notes-5.html#more">Read More</a>
+          <a href="/2017/07/08/sicp-notes-5.html#more">Read More</a>
         </p>
       
       
@@ -413,7 +413,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/05/28/sicp-notes-4.html">SICP笔记（四）</a>
+      <a class="p-name article-title" href="/2017/05/27/sicp-notes-4.html">SICP笔记（四）</a>
     </h1>
   
 
@@ -425,7 +425,7 @@
         <p>sicp的第二章讨论构造数据抽象。构造数据抽象是一个非常有用的工具，构造数据之后，便可以将构造的复合数据视为一个单元体，在构建程序让我们在更高的层次上思考问题，并可以增加程序的模块性，便于修改维护。</p>
       
         <p class="article-more-link">
-          <a href="/2017/05/28/sicp-notes-4.html#more">Read More</a>
+          <a href="/2017/05/27/sicp-notes-4.html#more">Read More</a>
         </p>
       
       
@@ -475,23 +475,23 @@
       <ul>
         
           <li>
-            <a href="/2022/04/04/ramda-debounce-throttle.html">Ramda.js 版本 debounce 和 throttle 函数</a>
+            <a href="/2022/04/03/ramda-debounce-throttle.html">Ramda.js 版本 debounce 和 throttle 函数</a>
           </li>
         
           <li>
-            <a href="/2022/01/16/glob-match-naming-convention.html">Using Glob Patterns to Match Common Naming Conventions</a>
+            <a href="/2022/01/15/glob-match-naming-convention.html">Using Glob Patterns to Match Common Naming Conventions</a>
           </li>
         
           <li>
-            <a href="/2022/01/12/eslint-plugin-check-file.html">使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</a>
+            <a href="/2022/01/11/eslint-plugin-check-file.html">使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</a>
           </li>
         
           <li>
-            <a href="/2021/11/09/docker-npm-install-error.html">docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</a>
+            <a href="/2021/11/08/docker-npm-install-error.html">docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</a>
           </li>
         
           <li>
-            <a href="/2021/10/22/blog-clean-plan-3.html">博客除草计划（三）：Candelas 发布，使用新主题部署博客</a>
+            <a href="/2021/10/21/blog-clean-plan-3.html">博客除草计划（三）：Candelas 发布，使用新主题部署博客</a>
           </li>
         
       </ul>
