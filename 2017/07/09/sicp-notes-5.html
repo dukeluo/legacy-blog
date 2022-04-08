@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="根据书中脚注，SICP中的闭包只是涉及组合方面的相关特性，并不涉及自由变量。使用闭包特性可以快速地构建复杂性，在本节的实例中我们可以看到其强大的威力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SICP笔记（五）">
+<meta property="og:url" content="https://dukeluo.github.io/2017/07/09/sicp-notes-5.html">
+<meta property="og:site_name" content="晒网">
+<meta property="og:description" content="根据书中脚注，SICP中的闭包只是涉及组合方面的相关特性，并不涉及自由变量。使用闭包特性可以快速地构建复杂性，在本节的实例中我们可以看到其强大的威力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-26T14:52:41.471Z">
+<meta property="article:author" content="Duke Luo">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="SICP">
+<meta property="article:tag" content="Scheme">
+<meta name="twitter:card" content="summary">
+  <title>SICP笔记（五） | 晒网</title>
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS&#x2F;woiFS3uNKo8eIuni59rjyNGtXfstRzStA&#x3D;" crossorigin="anonymous">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo&#x3D;" defer crossorigin="anonymous"></script>
+
+  
+  
+    
+<script src="/js/toc.js" defer></script>
+
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js" defer></script>
+
+    
+<script src="/js/fingerprint.js" defer></script>
+
+    
+<script src="/js/gist.js" defer></script>
+
+    
+<script src="/js/like.js" defer type="module"></script>
+
+  
+  
+<script src="/js/script.js" defer></script>
+
+  
+<script src="/js/search.js" defer></script>
+
+  
+<script src="/js/chocolate.js" defer></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP&#x2F;HTHLT7097U8Y5b8&#x3D;" crossorigin="anonymous" defer></script>
+
+  
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CM4L7SPN4"></script>
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  // eslint-disable-next-line no-undef
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9CM4L7SPN4');
+</script>
+
+  
+  
+    <script type="text/javascript">
+  // eslint-disable-next-line no-var
+  var _gauges = _gauges || [];
+  (function() {
+    let t   = document.createElement('script');
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    let s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="晒网" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header" class="post-header">
+    <div id="header-inner">
+        <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+                <a class="main-nav-link" href="/">Home</a>
+            
+                <a class="main-nav-link" href="/categories">Category</a>
+            
+                <a class="main-nav-link" href="/archives">Archive</a>
+            
+        </nav>
+        <nav id="sub-nav">
+            <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        </nav>
+        <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dukeluo.github.io"></form>
+        </div>
+    </div>
+</header>
+
+      <div class="post-outer" data-post-title="SICP笔记（五）" id="post">
+  <section class="post-toc">
+    <aside class="post-fixed-container">
+  <div class="toc-wrap">
+  <h3 class="toc-title">目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97"><span class="toc-text">序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-text">八皇后问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A6%E5%AE%9A%E6%8E%A5%E5%8F%A3"><span class="toc-text">约定接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E8%AF%AD%E8%A8%80"><span class="toc-text">图形语言</span></a></li></ol>
+</div>
+
+  
+    <div id="post-like" data-token="MTBiZjhlNDE3YjA3Y2VmMWFmZmZhMTAxYzMzNzM3Mjk3MjRjYzViNQ==">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+</div>
+
+  
+</aside>
+
+  </section>
+  <section class="post-main">
+    <article id="post-sicp-notes-5" class="h-entry article article-type-post"
+  itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <p class="article-date">
+  <time class="dt-published" datetime="2017-07-08T16:00:00.000Z" itemprop="datePublished">2017-07-09</time>
+</p>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SICP笔记（五）
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><blockquote>
+<p>In general,an operation for combining data objects satisfies the closure property if results of combining things with that operation can themselves be combined using the same operation.</p>
+</blockquote>
+<span id="more"></span>
+
+<p>根据书中脚注，SICP中的闭包只是涉及组合方面的相关特性，并不涉及自由变量。使用闭包特性可以快速地构建复杂性，在本节的实例中我们可以看到其强大的威力。</p>
+<hr>
+<h3 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h3><p>使用<code>cons</code>，可以轻松地构造序对，有序的序列也可以用<code>cons</code>构造。<br><code>(cons &lt;a1&gt; (cons &lt;a2&gt; (cons ... (cons &lt;an&gt; nil) ... )))</code>连续使用<code>cons</code>构造序列，<code>nil</code>意为空表，表示序对的链结束，但是此写法太过冗长，scheme便提供了基本操作<code>(list &lt;a1&gt; &lt;a2&gt; ... &lt;an&gt;)</code>，两者是等价的，是语法糖关系。<br>基本操作<code>list</code>可以构建出序列，序列是一种基本数据结构，我们常常需要对其处理。python中的list，python就提供了很丰富的基本方法，使用python处理list时就很得心应手。基于序列在scheme中的表示，使用递归和迭代的方法，我们构造了一些基本操作，<code>append</code>,<code>reverse</code>等。<br>想到闭包性质，我们很容易联想序列的元素本身也是序列的情况，第一感觉处理时应该是困难了不少，仔细想想递归的属性，递归当仁不让成为首选，轻松get!<br>处理层次性结构时，千万不要尝试进入数据的表示层，应当在抽象屏障之上处理数据结构。</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>map是一种重要的结构，在更高的层次上对表操作进行了抽象。Map为我们建起了一层抽象屏障，将实现表变换的过程与如何提取表中元素以及组合结果的细节隔离开，常与lambda函数配合使用。 </p>
+<h4 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h4><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;;; 八皇后问题</span></span><br><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">queens</span> board-size)</span><br><span class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">queen-cols</span> k)</span><br><span class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> k <span class="number">0</span>)</span><br><span class="line">        (<span class="name"><span class="builtin-name">list</span></span> empty-board)</span><br><span class="line">        (<span class="name">filter</span></span><br><span class="line">         (<span class="name"><span class="builtin-name">lambda</span></span> (positions) (<span class="name">safe?</span> k positions))</span><br><span class="line">         (<span class="name">flatmap</span></span><br><span class="line">          (<span class="name"><span class="builtin-name">lambda</span></span> (rest-of-queens)</span><br><span class="line">            (<span class="name"><span class="builtin-name">map</span></span> (<span class="name"><span class="builtin-name">lambda</span></span> (new-row)</span><br><span class="line">                   (<span class="name">adjoin-position</span> new-row k rest-of-queens))</span><br><span class="line">                 (<span class="name">enumerate-interval</span> <span class="number">1</span> board-size)))</span><br><span class="line">          (<span class="name">queen-cols</span> (<span class="name"><span class="builtin-name">-</span></span> k <span class="number">1</span>))))))</span><br><span class="line">  (<span class="name">queen-cols</span> board-size))</span><br><span class="line"></span><br><span class="line">(<span class="name"><span class="builtin-name">define</span></span> empty-board &#x27;())</span><br><span class="line"></span><br><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">adjoin-position</span> new-row k rest-of-queens)</span><br><span class="line">  (<span class="name"><span class="builtin-name">cons</span></span> new-row rest-of-queens))</span><br><span class="line"></span><br><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">safe?</span> k positions)</span><br><span class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">iter</span> new-row rest-of-queens i)</span><br><span class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">null?</span></span> rest-of-queens)</span><br><span class="line">        <span class="literal">#t</span></span><br><span class="line">        (<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">current-row</span> (<span class="name"><span class="builtin-name">car</span></span> rest-of-queens)))</span><br><span class="line">          (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">or</span></span> (<span class="name"><span class="builtin-name">=</span></span> new-row current-row)</span><br><span class="line">                  (<span class="name"><span class="builtin-name">=</span></span> new-row (<span class="name"><span class="builtin-name">+</span></span> current-row</span><br><span class="line">                                i))</span><br><span class="line">                  (<span class="name"><span class="builtin-name">=</span></span> new-row (<span class="name"><span class="builtin-name">-</span></span> current-row</span><br><span class="line">                                i)))</span><br><span class="line">              <span class="literal">#f</span></span><br><span class="line">              (<span class="name">iter</span> new-row (<span class="name"><span class="builtin-name">cdr</span></span> rest-of-queens) (<span class="name"><span class="builtin-name">+</span></span> i <span class="number">1</span>))))))</span><br><span class="line">  (<span class="name">iter</span> (<span class="name"><span class="builtin-name">car</span></span> positions) (<span class="name"><span class="builtin-name">cdr</span></span> positions) <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>假设已经放好k-1个皇后，在此基础上，在第k列的每一行上摆上皇后，然后过滤合适的解。解法中的<code>flatmap</code>函数使用了嵌套映射，在正确放好k-1个皇后的基础上产生第k列的每一行放上皇后的集合扩展，<code>filter</code>函数通过<code>safe?</code>过滤合适的解。</p>
+<h3 id="约定接口"><a href="#约定接口" class="headerlink" title="约定接口"></a>约定接口</h3><p>还记得刚开始的时候，老师介绍说，本课程的三大方面，黑盒抽象，约定接口与元语言抽象。<br>约定接口利于模块化设计，可以单独地设计好模块，解决问题时只需从模块库中挑取合适的模块，组合起来，这种策略就非常灵活了，并且可以重复利用模块，大量减轻工作量。此处，序列是载体，将各种模块化的操作囊括进来，组合我们需要的目标程序。书中，先枚举区间内的数，接着映射，然后对所有结果过滤，累积合适的解。</p>
+<h3 id="图形语言"><a href="#图形语言" class="headerlink" title="图形语言"></a>图形语言</h3><p>本节的实例是一种图形语言的实现，在这种语言中，基本元素叫<code>painter</code>，不同以往的是，它是由过程表示，给<code>painter</code>传入一个<code>frame</code>参数，<code>painter</code>便在<code>frame</code>画出其表示的图像。因为<code>painter</code>是由过程表示的，于是lisp的组合方法完全适用于此语言，也就是说，这门图形语言嵌套在lisp中。在picture的组合中，因为picture具有闭包性质，我们便可以快速地通过一些基本操作构建复杂的操作。<br>在这门语言的实现中，我们抽象了好几个层次，在每一层上做出修改，最后的结果也会做出相应的改变。此实例，告诉我们数据和过程之间并没有区别，用过程表示数据，使编程变得简单且优雅！</p>
+<hr>
+<p>习题解答：<a target="_blank" rel="noopener" href="https://github.com/DukeLuo/SICP">传送门</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="copyright">
+  <p><a href="https://dukeluo.github.io/2017/07/09/sicp-notes-5.html">https://dukeluo.github.io/2017/07/09/sicp-notes-5.html</a></p>
+  <p>本作品采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可</p>
+</div>
+
+      
+      
+  <div id="article-tag">
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SICP/" rel="tag">SICP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scheme/" rel="tag">Scheme</a></li></ul>
+  </div>
+
+
+      
+        <div class="article-share-links">
+  <a href="https://twitter.com/intent/tweet?text=SICP%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F07%2F09%2Fsicp-notes-5.html"
+    class="article-share-twitter" target="_blank" title="Twitter"></a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdukeluo.github.io%2F2017%2F07%2F09%2Fsicp-notes-5.html"
+    class="article-share-facebook" target="_blank" title="Facebook"></a>
+  ​<a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F07%2F09%2Fsicp-notes-5.html"
+    class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+  ​<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdukeluo.github.io%2F2017%2F07%2F09%2Fsicp-notes-5.html"
+    class="article-share-linkedin" target="_blank" title="LinkedIn"></a>
+</div>
+
+      
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav">
+    
+      <a href="/2017/07/22/python-list-argument.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">阅读下一篇</h4>
+        <div class="article-nav-title">python中列表作为参数的传递方式</div>
+      </a>
+    
+    
+      <a href="/2017/05/28/sicp-notes-4.html" id="article-nav-older" class="article-nav-link-wrap">
+        <h4 class="article-nav-caption">可能会喜欢</h4>
+        <div class="article-nav-title">SICP笔记（四）</div>
+      </a>
+    
+  </nav>
+
+
+  
+</article>
+
+    
+      <div class="gitalk">
+  
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js" integrity="sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;" crossorigin="anonymous"></script>
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt&#x2F;Hn&#x2F;PvYZde1iqfp8U&#x3D;" crossorigin="anonymous">
+
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    // eslint-disable-next-line no-undef
+    let gitalk = new Gitalk({
+      clientID: '2ed7f9c25568fea2ee69',
+      clientSecret: '758d4a3ec0cdddb2cc6d321de02e3f26545edb93',
+      id: window.location.pathname,
+      repo: 'DukeLuo.github.io',
+      owner: 'DukeLuo',
+      admin: 'DukeLuo',
+      distractionFreeMode: true
+    });
+
+    gitalk.render('gitalk-container');
+  </script>
+</div>
+
+    
+  </section>
+  <section class="post-sidebar">
+    <aside>
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algs4/" rel="tag">Algs4</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Candelas/" rel="tag">Candelas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Actions/" rel="tag">Github Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hook/" rel="tag">Hook</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-R/" rel="tag">K&R</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SICP/" rel="tag">SICP</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/" rel="tag">Scheme</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glob/" rel="tag">glob</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html2canvas/" rel="tag">html2canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsPDF/" rel="tag">jsPDF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ramda/" rel="tag">ramda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" rel="tag">事件对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E4%BD%8D/" rel="tag">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%AE%E5%8A%A8/" rel="tag">浮动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/" rel="tag">除草计划</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/04/ramda-debounce-throttle.html">Ramda.js 版本 debounce 和 throttle 函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/16/glob-match-naming-convention.html">Using Glob Patterns to Match Common Naming Conventions</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/12/eslint-plugin-check-file.html">使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/09/docker-npm-install-error.html">docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/22/blog-clean-plan-3.html">博客除草计划（三）：Candelas 发布，使用新主题部署博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap">
+  <h3 class="widget-title">
+    关于我
+  </h3>
+  <div class="widget">
+    <div class="profile">
+      <div class="motto">
+        
+          <p class="source"><span>左传·曹刿论战</span></p>
+        
+        <div class="quote">&#10077;</div>
+        <p class="content">夫战，勇气也。一鼓作气，再而衰，三而竭。</p>
+        <div class="close quote">&#10077;</div>
+      </div>
+      <div class="basic">
+        <div class="avatar"></div>
+        <div class="info">
+          <h2 class="name">DukeLuo</h2>
+          <h3 class="location">Wuhan</h3>
+        </div>
+      </div>
+      <div class="links">
+        
+          <a id="github-link" class="profile-link" target="_blank" rel="noopener" href="https://github.com/DukeLuo" title="GitHub"></a>
+        
+        
+          <a id="stackoverflow-link" class="profile-link" target="_blank" rel="noopener" href="https://stackoverflow.com/users/12814009" title="Stack Overflow"></a>
+        
+        
+          <a id="email-link" class="profile-link" href="mailto:dukeluo@outlook.com" title="邮箱"></a>
+        
+        
+          <a id="rss-link" class="profile-link" href="/atom.xml" title="RSS"></a>
+        
+      </div>
+    </div>
+    
+      <div class="holder">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+      </div>
+    
+  </div>
+</div>
+
+</aside>
+
+  </section>
+</div>
+
+
+      <footer id="footer">
+  <p>Copyright &copy; 2022 晒网</p>
+  <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> • Theme <a
+                href="https://github.com/DukeLuo/hexo-theme-candelas" target="_blank">Candelas</a></p>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archive</a>
+  
+</nav>
+
+  </div>
+</body>
+</html>
