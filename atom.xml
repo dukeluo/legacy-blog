@@ -3,11 +3,11 @@
   <title>晒网</title>
   
   <subtitle>Knowledge is Power</subtitle>
-  <link href="https://dukeluo.github.io/atom.xml" rel="self"/>
+  <link href="https://shaiwang.life/atom.xml" rel="self"/>
   
-  <link href="https://dukeluo.github.io/"/>
+  <link href="https://shaiwang.life/"/>
   <updated>2022-04-04T15:41:04.647Z</updated>
-  <id>https://dukeluo.github.io/</id>
+  <id>https://shaiwang.life/</id>
   
   <author>
     <name>Duke Luo</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Ramda.js 版本 debounce 和 throttle 函数</title>
-    <link href="https://dukeluo.github.io/2022/04/04/ramda-debounce-throttle.html"/>
-    <id>https://dukeluo.github.io/2022/04/04/ramda-debounce-throttle.html</id>
+    <link href="https://shaiwang.life/2022/04/04/ramda-debounce-throttle.html"/>
+    <id>https://shaiwang.life/2022/04/04/ramda-debounce-throttle.html</id>
     <published>2022-04-03T16:00:00.000Z</published>
     <updated>2022-04-04T15:41:04.647Z</updated>
     
@@ -28,21 +28,21 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="ramda" scheme="https://dukeluo.github.io/tags/ramda/"/>
+    <category term="ramda" scheme="https://shaiwang.life/tags/ramda/"/>
     
-    <category term="React" scheme="https://dukeluo.github.io/tags/React/"/>
+    <category term="React" scheme="https://shaiwang.life/tags/React/"/>
     
-    <category term="Hook" scheme="https://dukeluo.github.io/tags/Hook/"/>
+    <category term="Hook" scheme="https://shaiwang.life/tags/Hook/"/>
     
   </entry>
   
   <entry>
     <title>Using Glob Patterns to Match Common Naming Conventions</title>
-    <link href="https://dukeluo.github.io/2022/01/16/glob-match-naming-convention.html"/>
-    <id>https://dukeluo.github.io/2022/01/16/glob-match-naming-convention.html</id>
+    <link href="https://shaiwang.life/2022/01/16/glob-match-naming-convention.html"/>
+    <id>https://shaiwang.life/2022/01/16/glob-match-naming-convention.html</id>
     <published>2022-01-15T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:36.801Z</updated>
     
@@ -51,19 +51,19 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="eslint" scheme="https://dukeluo.github.io/tags/eslint/"/>
+    <category term="eslint" scheme="https://shaiwang.life/tags/eslint/"/>
     
-    <category term="glob" scheme="https://dukeluo.github.io/tags/glob/"/>
+    <category term="glob" scheme="https://shaiwang.life/tags/glob/"/>
     
   </entry>
   
   <entry>
     <title>使用 eslint-plugin-check-file 规范 jest 下测试文件所在的文件夹命名</title>
-    <link href="https://dukeluo.github.io/2022/01/12/eslint-plugin-check-file.html"/>
-    <id>https://dukeluo.github.io/2022/01/12/eslint-plugin-check-file.html</id>
+    <link href="https://shaiwang.life/2022/01/12/eslint-plugin-check-file.html"/>
+    <id>https://shaiwang.life/2022/01/12/eslint-plugin-check-file.html</id>
     <published>2022-01-11T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:37.854Z</updated>
     
@@ -72,19 +72,19 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    <category term="npm" scheme="https://shaiwang.life/tags/npm/"/>
     
-    <category term="eslint" scheme="https://dukeluo.github.io/tags/eslint/"/>
+    <category term="eslint" scheme="https://shaiwang.life/tags/eslint/"/>
     
   </entry>
   
   <entry>
     <title>docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory</title>
-    <link href="https://dukeluo.github.io/2021/11/09/docker-npm-install-error.html"/>
-    <id>https://dukeluo.github.io/2021/11/09/docker-npm-install-error.html</id>
+    <link href="https://shaiwang.life/2021/11/09/docker-npm-install-error.html"/>
+    <id>https://shaiwang.life/2021/11/09/docker-npm-install-error.html</id>
     <published>2021-11-08T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:15.088Z</updated>
     
@@ -93,19 +93,19 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="docker" scheme="https://dukeluo.github.io/tags/docker/"/>
+    <category term="docker" scheme="https://shaiwang.life/tags/docker/"/>
     
-    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    <category term="npm" scheme="https://shaiwang.life/tags/npm/"/>
     
   </entry>
   
   <entry>
     <title>博客除草计划（三）：Candelas 发布，使用新主题部署博客</title>
-    <link href="https://dukeluo.github.io/2021/10/22/blog-clean-plan-3.html"/>
-    <id>https://dukeluo.github.io/2021/10/22/blog-clean-plan-3.html</id>
+    <link href="https://shaiwang.life/2021/10/22/blog-clean-plan-3.html"/>
+    <id>https://shaiwang.life/2021/10/22/blog-clean-plan-3.html</id>
     <published>2021-10-21T16:00:00.000Z</published>
     <updated>2022-03-27T01:57:31.096Z</updated>
     
@@ -114,19 +114,19 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="除草计划" scheme="https://dukeluo.github.io/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
+    <category term="除草计划" scheme="https://shaiwang.life/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
     
-    <category term="Candelas" scheme="https://dukeluo.github.io/tags/Candelas/"/>
+    <category term="Candelas" scheme="https://shaiwang.life/tags/Candelas/"/>
     
   </entry>
   
   <entry>
     <title>React useEffect 函数体和返回体的执行次数</title>
-    <link href="https://dukeluo.github.io/2021/06/19/react-useeffect.html"/>
-    <id>https://dukeluo.github.io/2021/06/19/react-useeffect.html</id>
+    <link href="https://shaiwang.life/2021/06/19/react-useeffect.html"/>
+    <id>https://shaiwang.life/2021/06/19/react-useeffect.html</id>
     <published>2021-06-18T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:27.315Z</updated>
     
@@ -135,19 +135,19 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="React" scheme="https://dukeluo.github.io/tags/React/"/>
+    <category term="React" scheme="https://shaiwang.life/tags/React/"/>
     
-    <category term="Hook" scheme="https://dukeluo.github.io/tags/Hook/"/>
+    <category term="Hook" scheme="https://shaiwang.life/tags/Hook/"/>
     
   </entry>
   
   <entry>
     <title>使用 patch-package 修改第三方依赖库</title>
-    <link href="https://dukeluo.github.io/2021/03/07/modify-third-package.html"/>
-    <id>https://dukeluo.github.io/2021/03/07/modify-third-package.html</id>
+    <link href="https://shaiwang.life/2021/03/07/modify-third-package.html"/>
+    <id>https://shaiwang.life/2021/03/07/modify-third-package.html</id>
     <published>2021-03-06T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:14.627Z</updated>
     
@@ -156,17 +156,17 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="npm" scheme="https://dukeluo.github.io/tags/npm/"/>
+    <category term="npm" scheme="https://shaiwang.life/tags/npm/"/>
     
   </entry>
   
   <entry>
     <title>使用 git rebase 合并历史提交和修改记录 Commit Message</title>
-    <link href="https://dukeluo.github.io/2020/05/07/git-rebase.html"/>
-    <id>https://dukeluo.github.io/2020/05/07/git-rebase.html</id>
+    <link href="https://shaiwang.life/2020/05/07/git-rebase.html"/>
+    <id>https://shaiwang.life/2020/05/07/git-rebase.html</id>
     <published>2020-05-06T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:37.710Z</updated>
     
@@ -175,17 +175,17 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="git" scheme="https://dukeluo.github.io/tags/git/"/>
+    <category term="git" scheme="https://shaiwang.life/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>博客除草计划（二）：GitHub Pages Deploy Action 部署 hexo 博客</title>
-    <link href="https://dukeluo.github.io/2020/04/14/blog-clean-plan-2.html"/>
-    <id>https://dukeluo.github.io/2020/04/14/blog-clean-plan-2.html</id>
+    <link href="https://shaiwang.life/2020/04/14/blog-clean-plan-2.html"/>
+    <id>https://shaiwang.life/2020/04/14/blog-clean-plan-2.html</id>
     <published>2020-04-13T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:27.953Z</updated>
     
@@ -194,21 +194,21 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="除草计划" scheme="https://dukeluo.github.io/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
+    <category term="除草计划" scheme="https://shaiwang.life/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
     
-    <category term="Github Actions" scheme="https://dukeluo.github.io/tags/Github-Actions/"/>
+    <category term="Github Actions" scheme="https://shaiwang.life/tags/Github-Actions/"/>
     
-    <category term="Candelas" scheme="https://dukeluo.github.io/tags/Candelas/"/>
+    <category term="Candelas" scheme="https://shaiwang.life/tags/Candelas/"/>
     
   </entry>
   
   <entry>
     <title>博客除草计划（一）：使用 Backblaze、Cloudflare 和 rclone 管理博客图片</title>
-    <link href="https://dukeluo.github.io/2020/02/12/blog-clean-plan-1.html"/>
-    <id>https://dukeluo.github.io/2020/02/12/blog-clean-plan-1.html</id>
+    <link href="https://shaiwang.life/2020/02/12/blog-clean-plan-1.html"/>
+    <id>https://shaiwang.life/2020/02/12/blog-clean-plan-1.html</id>
     <published>2020-02-11T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:19.237Z</updated>
     
@@ -217,17 +217,17 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="除草计划" scheme="https://dukeluo.github.io/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
+    <category term="除草计划" scheme="https://shaiwang.life/tags/%E9%99%A4%E8%8D%89%E8%AE%A1%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>从 html 到 pdf，为 Slowly 信件换衣裳</title>
-    <link href="https://dukeluo.github.io/2020/02/08/slowly-html-pdf.html"/>
-    <id>https://dukeluo.github.io/2020/02/08/slowly-html-pdf.html</id>
+    <link href="https://shaiwang.life/2020/02/08/slowly-html-pdf.html"/>
+    <id>https://shaiwang.life/2020/02/08/slowly-html-pdf.html</id>
     <published>2020-02-07T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:19.088Z</updated>
     
@@ -236,23 +236,23 @@
     
     
     
-    <category term="实战" scheme="https://dukeluo.github.io/categories/%E5%AE%9E%E6%88%98/"/>
+    <category term="实战" scheme="https://shaiwang.life/categories/%E5%AE%9E%E6%88%98/"/>
     
     
-    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://shaiwang.life/tags/JavaScript/"/>
     
-    <category term="小项目" scheme="https://dukeluo.github.io/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
+    <category term="小项目" scheme="https://shaiwang.life/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
     
-    <category term="jsPDF" scheme="https://dukeluo.github.io/tags/jsPDF/"/>
+    <category term="jsPDF" scheme="https://shaiwang.life/tags/jsPDF/"/>
     
-    <category term="html2canvas" scheme="https://dukeluo.github.io/tags/html2canvas/"/>
+    <category term="html2canvas" scheme="https://shaiwang.life/tags/html2canvas/"/>
     
   </entry>
   
   <entry>
     <title>千山助手，开发之初体验</title>
-    <link href="https://dukeluo.github.io/2018/11/10/practice-qianshan.html"/>
-    <id>https://dukeluo.github.io/2018/11/10/practice-qianshan.html</id>
+    <link href="https://shaiwang.life/2018/11/10/practice-qianshan.html"/>
+    <id>https://shaiwang.life/2018/11/10/practice-qianshan.html</id>
     <published>2018-11-09T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.454Z</updated>
     
@@ -261,21 +261,21 @@
     
     
     
-    <category term="实战" scheme="https://dukeluo.github.io/categories/%E5%AE%9E%E6%88%98/"/>
+    <category term="实战" scheme="https://shaiwang.life/categories/%E5%AE%9E%E6%88%98/"/>
     
     
-    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://shaiwang.life/tags/JavaScript/"/>
     
-    <category term="小项目" scheme="https://dukeluo.github.io/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
+    <category term="小项目" scheme="https://shaiwang.life/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
     
-    <category term="jQuery" scheme="https://dukeluo.github.io/tags/jQuery/"/>
+    <category term="jQuery" scheme="https://shaiwang.life/tags/jQuery/"/>
     
   </entry>
   
   <entry>
     <title>翻译 | 深入理解JavaScirpt的函数调用和&quot;this&quot;</title>
-    <link href="https://dukeluo.github.io/2018/07/31/javascript-invocation-this.html"/>
-    <id>https://dukeluo.github.io/2018/07/31/javascript-invocation-this.html</id>
+    <link href="https://shaiwang.life/2018/07/31/javascript-invocation-this.html"/>
+    <id>https://shaiwang.life/2018/07/31/javascript-invocation-this.html</id>
     <published>2018-07-30T16:00:00.000Z</published>
     <updated>2022-03-26T15:00:39.242Z</updated>
     
@@ -284,19 +284,19 @@
     
     
     
-    <category term="翻译" scheme="https://dukeluo.github.io/categories/%E7%BF%BB%E8%AF%91/"/>
+    <category term="翻译" scheme="https://shaiwang.life/categories/%E7%BF%BB%E8%AF%91/"/>
     
     
-    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://shaiwang.life/tags/JavaScript/"/>
     
-    <category term="this" scheme="https://dukeluo.github.io/tags/this/"/>
+    <category term="this" scheme="https://shaiwang.life/tags/this/"/>
     
   </entry>
   
   <entry>
     <title>CSS学习（二）：背景图片如何定位？</title>
-    <link href="https://dukeluo.github.io/2018/07/10/css-bgposition.html"/>
-    <id>https://dukeluo.github.io/2018/07/10/css-bgposition.html</id>
+    <link href="https://shaiwang.life/2018/07/10/css-bgposition.html"/>
+    <id>https://shaiwang.life/2018/07/10/css-bgposition.html</id>
     <published>2018-07-09T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.434Z</updated>
     
@@ -305,21 +305,21 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://shaiwang.life/tags/%E6%80%BB%E7%BB%93/"/>
     
-    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
+    <category term="CSS" scheme="https://shaiwang.life/tags/CSS/"/>
     
-    <category term="定位" scheme="https://dukeluo.github.io/tags/%E5%AE%9A%E4%BD%8D/"/>
+    <category term="定位" scheme="https://shaiwang.life/tags/%E5%AE%9A%E4%BD%8D/"/>
     
   </entry>
   
   <entry>
     <title>DOM中事件处理程序的第一个参数？</title>
-    <link href="https://dukeluo.github.io/2018/06/20/dom-event-1.html"/>
-    <id>https://dukeluo.github.io/2018/06/20/dom-event-1.html</id>
+    <link href="https://shaiwang.life/2018/06/20/dom-event-1.html"/>
+    <id>https://shaiwang.life/2018/06/20/dom-event-1.html</id>
     <published>2018-06-19T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.438Z</updated>
     
@@ -328,21 +328,21 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="事件对象" scheme="https://dukeluo.github.io/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"/>
+    <category term="事件对象" scheme="https://shaiwang.life/tags/%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"/>
     
-    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://shaiwang.life/tags/JavaScript/"/>
     
-    <category term="DOM" scheme="https://dukeluo.github.io/tags/DOM/"/>
+    <category term="DOM" scheme="https://shaiwang.life/tags/DOM/"/>
     
   </entry>
   
   <entry>
     <title>一道Leetcode题引起的思考：Segmentation fault是什么？</title>
-    <link href="https://dukeluo.github.io/2018/06/15/c-segfault.html"/>
-    <id>https://dukeluo.github.io/2018/06/15/c-segfault.html</id>
+    <link href="https://shaiwang.life/2018/06/15/c-segfault.html"/>
+    <id>https://shaiwang.life/2018/06/15/c-segfault.html</id>
     <published>2018-06-14T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.433Z</updated>
     
@@ -351,19 +351,19 @@
     
     
     
-    <category term="编程语言" scheme="https://dukeluo.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    <category term="编程语言" scheme="https://shaiwang.life/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="C" scheme="https://dukeluo.github.io/tags/C/"/>
+    <category term="C" scheme="https://shaiwang.life/tags/C/"/>
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://shaiwang.life/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>CSS学习（一）：清除浮动</title>
-    <link href="https://dukeluo.github.io/2018/05/13/css-clearfix.html"/>
-    <id>https://dukeluo.github.io/2018/05/13/css-clearfix.html</id>
+    <link href="https://shaiwang.life/2018/05/13/css-clearfix.html"/>
+    <id>https://shaiwang.life/2018/05/13/css-clearfix.html</id>
     <published>2018-05-12T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.435Z</updated>
     
@@ -372,21 +372,21 @@
     
     
     
-    <category term="前端" scheme="https://dukeluo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://shaiwang.life/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://shaiwang.life/tags/%E6%80%BB%E7%BB%93/"/>
     
-    <category term="CSS" scheme="https://dukeluo.github.io/tags/CSS/"/>
+    <category term="CSS" scheme="https://shaiwang.life/tags/CSS/"/>
     
-    <category term="浮动" scheme="https://dukeluo.github.io/tags/%E6%B5%AE%E5%8A%A8/"/>
+    <category term="浮动" scheme="https://shaiwang.life/tags/%E6%B5%AE%E5%8A%A8/"/>
     
   </entry>
   
   <entry>
     <title>官方支持，Hexo博客自定义域名开启HTTPS</title>
-    <link href="https://dukeluo.github.io/2018/05/08/hexo-https.html"/>
-    <id>https://dukeluo.github.io/2018/05/08/hexo-https.html</id>
+    <link href="https://shaiwang.life/2018/05/08/hexo-https.html"/>
+    <id>https://shaiwang.life/2018/05/08/hexo-https.html</id>
     <published>2018-05-07T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.444Z</updated>
     
@@ -395,19 +395,19 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://shaiwang.life/tags/%E6%80%BB%E7%BB%93/"/>
     
-    <category term="Hexo" scheme="https://dukeluo.github.io/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://shaiwang.life/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>剖析链表，链表常用操作集合</title>
-    <link href="https://dukeluo.github.io/2018/05/04/linkedlist-1.html"/>
-    <id>https://dukeluo.github.io/2018/05/04/linkedlist-1.html</id>
+    <link href="https://shaiwang.life/2018/05/04/linkedlist-1.html"/>
+    <id>https://shaiwang.life/2018/05/04/linkedlist-1.html</id>
     <published>2018-05-03T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.450Z</updated>
     
@@ -416,21 +416,21 @@
     
     
     
-    <category term="算法" scheme="https://dukeluo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://shaiwang.life/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://shaiwang.life/tags/%E6%80%BB%E7%BB%93/"/>
     
-    <category term="JavaScript" scheme="https://dukeluo.github.io/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://shaiwang.life/tags/JavaScript/"/>
     
-    <category term="链表" scheme="https://dukeluo.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
+    <category term="链表" scheme="https://shaiwang.life/tags/%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   
   <entry>
     <title>定制自己的Hexo博客主题Landscape</title>
-    <link href="https://dukeluo.github.io/2018/04/20/hexo-customization-1.html"/>
-    <id>https://dukeluo.github.io/2018/04/20/hexo-customization-1.html</id>
+    <link href="https://shaiwang.life/2018/04/20/hexo-customization-1.html"/>
+    <id>https://shaiwang.life/2018/04/20/hexo-customization-1.html</id>
     <published>2018-04-19T16:00:00.000Z</published>
     <updated>2022-03-26T14:52:41.443Z</updated>
     
@@ -439,12 +439,12 @@
     
     
     
-    <category term="记录" scheme="https://dukeluo.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://shaiwang.life/categories/%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="总结" scheme="https://dukeluo.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://shaiwang.life/tags/%E6%80%BB%E7%BB%93/"/>
     
-    <category term="Hexo" scheme="https://dukeluo.github.io/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://shaiwang.life/tags/Hexo/"/>
     
   </entry>
   
