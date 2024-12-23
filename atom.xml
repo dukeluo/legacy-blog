@@ -6,7 +6,7 @@
   <link href="https://shaiwang.life/atom.xml" rel="self"/>
   
   <link href="https://shaiwang.life/"/>
-  <updated>2022-04-04T15:41:04.647Z</updated>
+  <updated>2022-04-04T15:41:04.000Z</updated>
   <id>https://shaiwang.life/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shaiwang.life/2022/04/04/ramda-debounce-throttle.html"/>
     <id>https://shaiwang.life/2022/04/04/ramda-debounce-throttle.html</id>
     <published>2022-04-03T16:00:00.000Z</published>
-    <updated>2022-04-04T15:41:04.647Z</updated>
+    <updated>2022-04-04T15:41:04.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;debounce&lt;/code&gt; 函数和 &lt;code&gt;throttle&lt;/code&gt; 函数都是前端工具库中的常用函数，用于性能优化。大家常用的版本来自于 &lt;code&gt;lodash&lt;/code&gt;，我现在项目选用的工具库是 &lt;code&gt;Ramda.js&lt;/code&gt;，它是一个函数式编程库，并没有现成的方法。此文提供了 &lt;code&gt;Ramda.js&lt;/code&gt; 版本的 &lt;code&gt;debounce&lt;/code&gt; 和 &lt;code&gt;throttle&lt;/code&gt; React Hooks 函数，并提供了单元测试。&lt;/p&gt;</summary>
@@ -44,7 +44,7 @@
     <link href="https://shaiwang.life/2022/01/16/glob-match-naming-convention.html"/>
     <id>https://shaiwang.life/2022/01/16/glob-match-naming-convention.html</id>
     <published>2022-01-15T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:36.801Z</updated>
+    <updated>2022-03-26T15:00:36.000Z</updated>
     
     
     <summary type="html">Some glob aatterns for matching common naming conventions, including `CAMEL_CASE`, `PASCAL_CASE`, `SNAKE_CASE`, `KEBAB_CASE`, `SCREAMING_SNAKE_CASE` and `FLAT_CASE`</summary>
@@ -65,7 +65,7 @@
     <link href="https://shaiwang.life/2022/01/12/eslint-plugin-check-file.html"/>
     <id>https://shaiwang.life/2022/01/12/eslint-plugin-check-file.html</id>
     <published>2022-01-11T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:37.854Z</updated>
+    <updated>2022-03-26T15:00:37.000Z</updated>
     
     
     <summary type="html">发布 eslint-plugin-check-file 插件，介绍如何使用 eslint-plugin-check-file 插件来规范测试文件的文件夹。</summary>
@@ -86,7 +86,7 @@
     <link href="https://shaiwang.life/2021/11/09/docker-npm-install-error.html"/>
     <id>https://shaiwang.life/2021/11/09/docker-npm-install-error.html</id>
     <published>2021-11-08T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:15.088Z</updated>
+    <updated>2022-03-26T15:00:15.000Z</updated>
     
     
     <summary type="html">记录 docker 容器内 npm install 报错 npm WARN tar ENOENT: no such file or directory 和 npm ERR! code ENOENT npm ERR! syscall spawn git npm ERR! path git npm ERR! errno -2 npm ERR! enoent spawn git ENOENT 的解决方法。</summary>
@@ -107,7 +107,7 @@
     <link href="https://shaiwang.life/2021/10/22/blog-clean-plan-3.html"/>
     <id>https://shaiwang.life/2021/10/22/blog-clean-plan-3.html</id>
     <published>2021-10-21T16:00:00.000Z</published>
-    <updated>2022-03-27T01:57:31.096Z</updated>
+    <updated>2022-03-27T01:57:31.000Z</updated>
     
     
     <summary type="html">介绍 Hexo 博客全新主题 Candelas。</summary>
@@ -128,7 +128,7 @@
     <link href="https://shaiwang.life/2021/06/19/react-useeffect.html"/>
     <id>https://shaiwang.life/2021/06/19/react-useeffect.html</id>
     <published>2021-06-18T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:27.315Z</updated>
+    <updated>2022-03-26T15:00:27.000Z</updated>
     
     
     <summary type="html">介绍 useEffect 的函数体和返回体在不同依赖、不同生命周期下的执行次数情况。</summary>
@@ -149,7 +149,7 @@
     <link href="https://shaiwang.life/2021/03/07/modify-third-package.html"/>
     <id>https://shaiwang.life/2021/03/07/modify-third-package.html</id>
     <published>2021-03-06T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:14.627Z</updated>
+    <updated>2022-03-26T15:00:14.000Z</updated>
     
     
     <summary type="html">介绍一种修改第三方依赖库的方法，使用 patch-package 库生成补丁，结合 npm 勾子修改源代码，达到修改的目的。</summary>
@@ -168,7 +168,7 @@
     <link href="https://shaiwang.life/2020/05/07/git-rebase.html"/>
     <id>https://shaiwang.life/2020/05/07/git-rebase.html</id>
     <published>2020-05-06T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:37.710Z</updated>
+    <updated>2022-03-26T15:00:37.000Z</updated>
     
     
     <summary type="html">使用 git rebase 命令合并历史提交和修改记录 Commit Message</summary>
@@ -187,7 +187,7 @@
     <link href="https://shaiwang.life/2020/04/14/blog-clean-plan-2.html"/>
     <id>https://shaiwang.life/2020/04/14/blog-clean-plan-2.html</id>
     <published>2020-04-13T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:27.953Z</updated>
+    <updated>2022-03-26T15:00:27.000Z</updated>
     
     
     <summary type="html">记录使用 GitHub Pages Deploy Action 部署 hexo 博客主题 Candelas 演示站遇到的问题。</summary>
@@ -210,7 +210,7 @@
     <link href="https://shaiwang.life/2020/02/12/blog-clean-plan-1.html"/>
     <id>https://shaiwang.life/2020/02/12/blog-clean-plan-1.html</id>
     <published>2020-02-11T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:19.237Z</updated>
+    <updated>2022-03-26T15:00:19.000Z</updated>
     
     
     <summary type="html">博客除草计划的第一节，记录使用 Backblaze B2、Cloudflare 和 rclone 等工具管理博客图片的过程</summary>
@@ -229,7 +229,7 @@
     <link href="https://shaiwang.life/2020/02/08/slowly-html-pdf.html"/>
     <id>https://shaiwang.life/2020/02/08/slowly-html-pdf.html</id>
     <published>2020-02-07T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:19.088Z</updated>
+    <updated>2022-03-26T15:00:19.000Z</updated>
     
     
     <summary type="html">记录 Slowly 信件从 html 到 pdf 的换装之旅</summary>
@@ -254,7 +254,7 @@
     <link href="https://shaiwang.life/2018/11/10/practice-qianshan.html"/>
     <id>https://shaiwang.life/2018/11/10/practice-qianshan.html</id>
     <published>2018-11-09T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.454Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">记录第一次实现需求的开发过程。</summary>
@@ -266,9 +266,9 @@
     
     <category term="JavaScript" scheme="https://shaiwang.life/tags/JavaScript/"/>
     
-    <category term="小项目" scheme="https://shaiwang.life/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
-    
     <category term="jQuery" scheme="https://shaiwang.life/tags/jQuery/"/>
+    
+    <category term="小项目" scheme="https://shaiwang.life/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
@@ -277,7 +277,7 @@
     <link href="https://shaiwang.life/2018/07/31/javascript-invocation-this.html"/>
     <id>https://shaiwang.life/2018/07/31/javascript-invocation-this.html</id>
     <published>2018-07-30T16:00:00.000Z</published>
-    <updated>2022-03-26T15:00:39.242Z</updated>
+    <updated>2022-03-26T15:00:39.000Z</updated>
     
     
     <summary type="html">翻译文章：[Understanding JavaScript Function Invocation and &quot;this&quot;](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)。</summary>
@@ -298,7 +298,7 @@
     <link href="https://shaiwang.life/2018/07/10/css-bgposition.html"/>
     <id>https://shaiwang.life/2018/07/10/css-bgposition.html</id>
     <published>2018-07-09T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.434Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">利用平面直角坐标系介绍css背景属性`background-position`定位的原理。</summary>
@@ -321,7 +321,7 @@
     <link href="https://shaiwang.life/2018/06/20/dom-event-1.html"/>
     <id>https://shaiwang.life/2018/06/20/dom-event-1.html</id>
     <published>2018-06-19T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.438Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">关于DOM中事件处理程序第一个参数是事件对象的理解。</summary>
@@ -344,7 +344,7 @@
     <link href="https://shaiwang.life/2018/06/15/c-segfault.html"/>
     <id>https://shaiwang.life/2018/06/15/c-segfault.html</id>
     <published>2018-06-14T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.433Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">介绍C语言中的Segmentation fault错误。</summary>
@@ -365,7 +365,7 @@
     <link href="https://shaiwang.life/2018/05/13/css-clearfix.html"/>
     <id>https://shaiwang.life/2018/05/13/css-clearfix.html</id>
     <published>2018-05-12T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.435Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">介绍清除浮动的常用方法。</summary>
@@ -388,7 +388,7 @@
     <link href="https://shaiwang.life/2018/05/08/hexo-https.html"/>
     <id>https://shaiwang.life/2018/05/08/hexo-https.html</id>
     <published>2018-05-07T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.444Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">GitHub宣布支持自定义域名HTTPS，记录Hexo博客开启HTTPS的过程。</summary>
@@ -409,7 +409,7 @@
     <link href="https://shaiwang.life/2018/05/04/linkedlist-1.html"/>
     <id>https://shaiwang.life/2018/05/04/linkedlist-1.html</id>
     <published>2018-05-03T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.450Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">介绍面试中常见的链表操作。</summary>
@@ -432,7 +432,7 @@
     <link href="https://shaiwang.life/2018/04/20/hexo-customization-1.html"/>
     <id>https://shaiwang.life/2018/04/20/hexo-customization-1.html</id>
     <published>2018-04-19T16:00:00.000Z</published>
-    <updated>2022-03-26T14:52:41.443Z</updated>
+    <updated>2022-03-26T14:52:41.000Z</updated>
     
     
     <summary type="html">个性化定制Hexo博客主题Landscape。</summary>
